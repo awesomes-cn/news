@@ -1,16 +1,7 @@
 <template lang="pug">
-  div.topics-wraper
-    div.container
-      div.news-wraper
-        div.inner
-          news(:newss="newss" flag="news-list")
-    div.pub-news
-      div
-        editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
-      div.btn-wraper
-        button.btn.btn-danger
-          icon(name="send" width="16px") 发布
-      
+  div.container
+    div.toolbar
+    news(:newss="newss" flag="news-list")
 </template>
 
 
@@ -22,15 +13,9 @@
     name: 'home',
     data () {
       return {
-        newcon: '',
         pagesize: pagesize,
         newss: [],
-        pagetotal: 0,
-        setval: {
-          time: Date.now(),
-          val: ''
-        },
-        best: []
+        pagetotal: 0
       }
     },
     computed: {
@@ -74,27 +59,6 @@
         this.pagetotal = res.data.count
       },
 
-      // 发布情报
-      submit: async function () {
-        if (this.showLogin()) {
-          return
-        }
-        if (this.newcon.trim().length < 10) {
-          this.$alert('danger', '内容字数不能小于10')
-          return
-        }
-        let self = this
-
-        let res = await axios().post('/news', {con: this.newcon})
-        self.setEditVal('')
-        if (!res.data.status) {
-          this.$alert('danger', '发布失败，没有权限')
-          return
-        }
-        this.$alert('success', '发布成功')
-        self.newss.unshift(res.data.item)
-      },
-
       // 获取最佳
       fetchBest: function (period) {
         this.period = period
@@ -122,44 +86,7 @@
   .container {
     max-width: 800px;
   }
-  .card {
-    display: block;
-    background-color: #FFF;
-    padding: 30px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-
-  .new-bar {
-    margin-bottom: 10px;
-  }
-
-  .pub-news {
-    padding: 50px;
-    background-color: #FFF;
-    position: fixed;
-    z-index: 80;
-    width: 100%;
-    max-width: 500px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 60px;
-    border-bottom: #EEE 1px solid;
-    box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
-    border-left: #FAFAFA 1px solid;
-
-    .meditor {
-      min-height: 100px;
-    }
-
-    .btn-wraper {
-      margin-top: 10px;
-      .btn {
-        padding: 0.7rem 2rem;
-        width: 100%;
-      }
-    }
-      
+  .toolbar {
+    height: 30px;
   }
 </style>

@@ -1,13 +1,6 @@
 <template lang="pug">
   div.mem-area
     div.mem-banner
-      div.container
-        // div.mem-navs
-        //   nuxt-link(to="/mem" v-if="session") 收藏
-        //   nuxt-link(to="/mem" v-if="session") 文档
-        //   nuxt-link(to="/mem" v-if="session") 代码
-        //   nuxt-link(to="/mem" v-if="session") 评论
-
       nuxt-link(to="/mem" class="tx-link") 
         img.tx(:src="cdn(mem.avatar, 'mem')")
       h4 {{mem.nc}}
@@ -34,25 +27,8 @@
 
     div.container.conarea
       div.mem-menus
-        div.left
-          div.dropdown-outer
-            span.title {{getPageName()}}
-            icon(name="arrow-up" rotate="90")
-            div.dropdown
-              nuxt-link(:to="'/mem/' + mem.id") {{who}}在用
-              nuxt-link(:to="'/mem/' + mem.id + '/marks/repos'") {{who}}收藏的
-              nuxt-link(:to="'/mem/' + mem.id + '/pubs/news'") {{who}}发布的
-              nuxt-link(:to="'/mem/' + mem.id + '/ups'") {{who}}点赞的
-          div.seconds
-            nuxt-link(:to="'/mem/' + mem.id" v-if="routeKey === ''") 前端库
-            nuxt-link(:to="'/mem/' + mem.id + '/marks/repos'" v-if="routeKey === 'marks'") 前端库
-            
-            template(v-if="routeKey === 'pubs'")
-              nuxt-link(:to="'/mem/' + mem.id + '/pubs/news'") 情报
-              nuxt-link(:to="'/mem/' + mem.id + '/pubs/comments'") 评论
-              nuxt-link(:to="'/mem/' + mem.id + '/pubs/dianps'") 经验
-        div.right
-
+        nuxt-link(:to="'/mem/' + mem.id + '/pubs/news'") {{who}}发布的
+        nuxt-link(:to="'/mem/' + mem.id + '/zan'") {{who}}点赞的
       nuxt-child  
 </template>
 
@@ -105,70 +81,16 @@
   .mem-menus {
     font-size: 14px;
     font-weight: bold;
-    display: flex;
     margin-bottom: 10px;
     background-color: rgb(232, 236, 230);
 
-    .left {
-      flex-grow: 1
-    }
-
-    .right {
-      font-size: 13px;
-      a {
-        margin-right: 0;
-        margin-left: 20px;
-      }
+    a.router-link-exact-active {
+      color: #ee3910;
     }
 
     a {
       padding: 15px 10px;
       display: inline-block;
-    }
-    .seconds {
-      display: inline-block;
-      a {
-        &.nuxt-link-active {
-          color: #da552f
-        }
-      }
-    }
-
-
-
-    .dropdown {
-      position: absolute;
-      z-index: 10;
-      background-color: #FFF;
-      border: #EEE 1px solid;
-      border-top: #f7f8fa  1px solid;
-      text-align: center;
-      border-bottom: 0;
-      top: 51px;
-      left: 10px;
-      display: none;
-      a {
-        display: block;
-        border-bottom: #EEE 1px solid;
-        padding: 13px 30px;
-        width: 100%;
-        &.router-link-exact-active {
-          color: #da552f
-        }
-      }
-    }
-
-    .dropdown-outer {
-      display: inline-block;
-      &:hover {
-        .dropdown {
-          display: block;
-        }
-      }
-      .title {
-        padding:  15px;
-        display: inline-block;
-      }
     }
   }
   .mem-banner {

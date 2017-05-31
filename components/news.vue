@@ -9,10 +9,6 @@
       div.middle    
         article(v-html="marked(item.con)")
         div.infos
-          // nuxt-link(:to="/mem/ + item.mem.id")
-          //   img.tx(:src="cdn(item.mem.avatar, 'mem')")
-          //   span {{item.mem.nc}} 
-            // span(v-if="item.mem.mem_info.company") @{{item.mem.mem_info.company}} 
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom")
             icon(name="comment"  width="16px") {{item.comment}} 条评论
           span  {{timeago(item.created_at)}}
@@ -68,16 +64,17 @@
       flex-direction: column;
       align-items: center;
       width: 50px;
+      flex-shrink: 0
     }
 
     .middle {
       flex-grow: 1;
-      flex-shrink: 2;
     }
 
     .right {
-      width: 50px;
+      width: 70px;
       text-align: right;
+      flex-shrink: 0;
 
       .tx {
         width: 30px;

@@ -3,15 +3,10 @@
     div.outerwap
       div.inner
         div.banner
-          h2 前端客
+          h2 情报员
         article
-          p 客：古有侠客，一般指行侠仗义的大侠。
-          p 这里有两层含义，第一得有真功夫，第二得有侠义之心。
-          p 于是我们便采用了这个 “客”，赋予前端开发者一个特殊的身份，便是 “前端客” 了。
+          p 为了保证情报的质量和价值，我们不会对普通用户开放发布情报的功能，而是把这一重要的权限赋给「情报员」
 
-          h4 权利
-          p 1、发布情报
-          p 2、发布前端库的经验
 
           h4 申请条件
           p GitHub 关注数 >= 100 （非硬性规定，在大厂工作或其它特殊原因可无视该条件）
@@ -19,7 +14,7 @@
           
           h4 我要申请
           template(v-if="session && session.iswebker === 'YES'")
-            div.alert.alert-info 你目前已经是前端客
+            div.alert.alert-info 你目前已经是情报员
 
           template(v-if="!session || session.iswebker === 'NO'")
             div.form-group

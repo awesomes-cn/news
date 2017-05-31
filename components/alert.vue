@@ -1,5 +1,5 @@
 <template lang="pug">
-  transition(name="custom-classes-transition" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUpBig")  
+  transition(name="custom-classes-transition" enter-active-class="animated slideInDown" leave-active-class="animated fadeOutUpBig")  
     div.alert(:class="'alert-' + type")
       span {{msg}}
       button(type="button" class="close" aria-label="Close" @click="close")

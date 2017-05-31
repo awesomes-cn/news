@@ -18,7 +18,6 @@
             icon(name="more" width="20px")
 
           div.memeus(v-show="showmemeus" @mouseover="showmemeus = true" @mouseleave="showmemeus = false")
-            nuxt-link(to="/about") 我的收藏
             nuxt-link(to="/about") 个人资料
             a(href="javascript:void(0)" @click="logout()") 注 销
 
@@ -32,48 +31,55 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          button.pub-btn
+          button.pub-btn(@click="isShowPub = true")
             icon(name="plus"  width="20px") 发布情报
-
-
-          // div.hide-small.search-top
-          //   input.search-txt(type="text" placeholder="搜索前端库" v-model="searchKey" @keyup.enter="searchGo")
-          //   span(@click="searchGo")
-          //     icon(name="search" width="15px")
     
+    // 发布情报
+    transition(name="custom-classes-transition" enter-active-class="animated bounceInDown" leave-active-class="animated bounceOutUp")  
+      div.pub-news(v-show="isShowPub")
+        div.title
+          h5 发布情报
+          a.close(href="javascript:void(0)" @click="isShowPub = false")
+            icon(name="close")
+        template(v-if="session")
+          template(v-if="session.iswebker === 'YES'")
+            div
+              editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
+            div.btn-wraper
+              button.btn.btn-danger(@click="submitNews")
+                icon(name="send" width="16px") 发布
+          template(v-if="session.iswebker === 'NO'")
+            div.alert.alert-warning
+              span 为了保证质量，我们目前只针对
+              nuxt-link(to="/webker") 情报员
+              span 开放发布权限
+        template(v-if="!session")
+          button.btn.btn-primary(@click="showLogin()") 请登录后发布
     // 登录框
-    transition(name="custom-classes-transition" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUpBig")  
-      el-card.box-card(v-show="$store.state.isShowLogin")
-        div.box-header(slot="header")
-          span(style="line-height: 36px;") 登录（免注册）
-          a.close-btn(href="javascript:void(0)"  @click="hideLogin()")
-            icon.pull-right(name="close")
-        div.form-area
-          el-form(ref="form")
-            el-form-item
-              el-input(placeholder="邮箱" v-model="uid")
-            el-form-item
-              el-input(placeholder="密码"  v-model="pwd" type="password") 
-            el-form-item
-              el-button(type="primary"  class="login-btn" @click="login") 登录
-          div.github-login
-            a(href="")
-              icon(name="github" width="60px")   
+    login   
 
 </template>
 
 <script>
   import axios from '~plugins/axios'
   import Cookie from 'js-cookie'
+  import Login from './login'
   export default {
     data () {
       return {
-        uid: '',
-        pwd: '',
         isHideMenu: true,
         showmemeus: false,
-        searchKey: ''
+        searchKey: '',
+        isShowPub: false,
+        newcon: '',
+        setval: {
+          time: Date.now(),
+          val: ''
+        }
       }
+    },
+    components: {
+      Login
     },
     watch: {
       '$route': function () {
@@ -86,21 +92,6 @@
       }
     },
     methods: {
-      // 登录
-      login: function () {
-        let self = this
-        axios().post(`session/login`, { uid: this.uid, pwd: this.pwd }).then(res => {
-          if (!res.data.status) {
-            this.$alert('danger', '登录失败，用户名或密码错误')
-            Cookie.set('awlogin', null)
-          } else {
-            this.$alert('success', '登录成功！')
-            Cookie.set('awlogin', res.data.token)
-            self.hideLogin()
-            this.$store.commit('setUser', res.data.mem)
-          }
-        })
-      },
       // 注销
       logout: function () {
         Cookie.set('awlogin', null)
@@ -113,6 +104,33 @@
           return
         }
         this.$router.push({path: '/search', query: {q: this.searchKey}})
+      },
+
+      setEditVal: function (val) {
+        this.setval = {
+          time: Date.now(),
+          val: val
+        }
+      },
+      // 发布情报
+      submitNews: async function () {
+        if (this.showLogin()) {
+          return
+        }
+        if (this.newcon.trim().length < 10) {
+          this.$alert('danger', '内容字数不能小于10')
+          return
+        }
+        let self = this
+
+        let res = await axios().post('/news', {con: this.newcon})
+        self.setEditVal('')
+        if (!res.data.status) {
+          this.$alert('danger', '发布失败，没有权限')
+          return
+        }
+        this.$alert('success', '发布成功')
+        self.newss.unshift(res.data.item)
       }
     }
   }
@@ -129,6 +147,19 @@
     font-size: 1.1rem;
     font-weight: bold;
     background-color: rgba(254, 254, 254, 0.97);
+
+    a {
+      text-decoration: none;
+      height: 60px;
+      color: #7b7676;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: #da552f
+      }
+    }
+
 
     a.nuxt-link-active {
       color: #da552f;
@@ -206,18 +237,7 @@
   }
   
 
-  a {
-    text-decoration: none;
-    height: 60px;
-    color: #7b7676;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    &:hover {
-      color: #da552f
-    }
-    
-  }
+  
 
   .right > a {
     padding: 0 15px;
@@ -233,42 +253,6 @@
     width: 25px;
     height: 25px;
     border-radius: 100%;
-  }
-
-  .box-card {
-    position: fixed;
-    top: 60px;
-    width: 320px;
-    left: 50%;
-    margin-left: -160px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    background-color: #FFF;
-    z-index: 1000
-  }
-
-  .box-header {
-    text-align: center;
-    font-size: 1.1rem;
-  }
-
-  .form-area {
-    padding: 20px;
-  }
-
-  .login-btn {
-    width: 100%
-  }
-
-  .close-btn {
-    float: right
-  }
-
-  .github-login {
-    text-align: center;
-    * {
-      display: inline-block;
-    }
   }
 
   .pub-btn {
@@ -289,4 +273,44 @@
       display: block;
     }
   }
+
+  .pub-news {
+    padding: 50px;
+    padding-top: 30px;
+    background-color: #FFF;
+    position: fixed;
+    z-index: 80;
+    width: 100%;
+    max-width: 500px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 60px;
+    border-bottom: #EEE 1px solid;
+    box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
+    border-left: #FAFAFA 1px solid;
+
+    .meditor {
+      min-height: 100px;
+    }
+    .btn {
+      width: 100%;
+    }
+
+    .btn-wraper {
+      margin-top: 10px;
+    }
+
+    .title {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+
 </style>
