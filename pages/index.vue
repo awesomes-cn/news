@@ -7,12 +7,10 @@
     div.pub-news
       div
         editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
-      div.bottom
-        div.alert.alert-warning
-          span 请勿发布垃圾信息
-        div.btn-wraper
-          button.btn.btn-danger
-            icon(name="send" width="16px") 发布
+      div.btn-wraper
+        button.btn.btn-danger
+          icon(name="send" width="16px") 发布
+      
 </template>
 
 
@@ -137,31 +135,31 @@
   }
 
   .pub-news {
-    padding: 20px;
+    padding: 50px;
     background-color: #FFF;
     position: fixed;
     z-index: 80;
     width: 100%;
+    max-width: 500px;
+    left: 0;
+    right: 0;
+    margin: auto;
     top: 60px;
     border-bottom: #EEE 1px solid;
     box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
+    border-left: #FAFAFA 1px solid;
 
-    .bottom {
-      margin-top: 10px;
-      display: flex;
-
-      .alert {
-        flex-grow: 1
-      }
-
-      .btn-wraper {
-        padding-left: 20px;
-
-        .btn {
-          padding: 0.7rem 2rem;
-        }
-      }
-      
+    .meditor {
+      min-height: 100px;
     }
+
+    .btn-wraper {
+      margin-top: 10px;
+      .btn {
+        padding: 0.7rem 2rem;
+        width: 100%;
+      }
+    }
+      
   }
 </style>
