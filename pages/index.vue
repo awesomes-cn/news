@@ -5,6 +5,14 @@
         div.inner
           news(:newss="newss" flag="news-list")
     div.pub-news
+      div
+        editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
+      div.bottom
+        div.alert.alert-warning
+          span 请勿发布垃圾信息
+        div.btn-wraper
+          button.btn.btn-danger
+            icon(name="send" width="16px") 发布
 </template>
 
 
@@ -134,19 +142,26 @@
     position: fixed;
     z-index: 80;
     width: 100%;
-    height: 150px;
-    top: 0;
+    top: 60px;
     border-bottom: #EEE 1px solid;
     box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
-  }
 
-  .mask {
-    position: fixed;
-    z-index: 70;
-    background-color: rgba(238, 238, 238, 0.79);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    .bottom {
+      margin-top: 10px;
+      display: flex;
+
+      .alert {
+        flex-grow: 1
+      }
+
+      .btn-wraper {
+        padding-left: 20px;
+
+        .btn {
+          padding: 0.7rem 2rem;
+        }
+      }
+      
+    }
   }
 </style>

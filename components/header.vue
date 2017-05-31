@@ -32,7 +32,7 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          button(data-toggle="modal" data-target="#exampleModal")
+          button.pub-btn
             icon(name="plus"  width="20px") 发布情报
 
 
@@ -145,32 +145,10 @@
       color: #da552f
     }
   }
-
-  .search-top {
-    border: #EEE 1px solid;
-    margin-right: 20px;
-    .search-txt {
-      padding: 8px 10px;
-      border: none;
-      outline: none;
-      color: #ababab;
-      width: 150px;
-    }
-
-    & > span {
-      margin:0 5px;
-      color: #AAA;
-      cursor: pointer;
-    }
-  }
-
   .left, .middle .inner, .right {
     display: flex;
   }
   
-  .right {
-    align-items: center
-  }
 
   .middle {
   }
@@ -194,6 +172,7 @@
     flex-grow: 1;
     flex-direction: row-reverse;
     position: relative;
+    align-items: center
   }
 
   .logo {
@@ -290,6 +269,12 @@
     * {
       display: inline-block;
     }
+  }
+
+  .pub-btn {
+    background-color: #FFF;
+    border: #8a6d3b 1px solid;
+    color: #8a6d3b
   }
 
   .show-small {
