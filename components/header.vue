@@ -5,9 +5,7 @@
         div.left
           nuxt-link(to="/")
             img.logo(src="../assets/img/logo-50.png")
-            span.logo-txt.hide-small 前端情报局  
-          a(href="javascript:void(0)" @click="isHideMenu = !isHideMenu" class="show-small")
-            icon(name="list")
+            span.logo-txt.hide-small 前端情报局
         div.middle
           div.inner(:style="isHideMenu ? 'height: 60px' : ''")
             // nuxt-link(to="/weuse" ) 大牛在用
