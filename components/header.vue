@@ -29,12 +29,12 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          button.pub-btn(@click="isShowPub = true")
+          button.pub-btn(@click="showPub")
             icon(name="plus"  width="20px") 发布情报
     
     // 发布情报
     transition(name="custom-classes-transition" enter-active-class="animated bounceInDown" leave-active-class="animated bounceOutUp")  
-      div.pub-news(v-show="isShowPub")
+      div.pub-news(v-if="isShowPub")
         div.title
           h5 发布情报
           a.close(href="javascript:void(0)" @click="isShowPub = false")
@@ -42,7 +42,8 @@
         template(v-if="session")
           template(v-if="session.iswebker === 'YES'")
             div
-              editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
+              editor(flag="news-pub" v-if="!editorLoading"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
+              Loading(v-else)
             div.btn-wraper
               button.btn.btn-danger(@click="submitNews")
                 icon(name="send" width="16px") 发布
@@ -62,6 +63,8 @@
   import axios from '~plugins/axios'
   import Cookie from 'js-cookie'
   import Login from './login'
+  import Vue from 'vue'
+  import Loading from '~components/loading'
   export default {
     data () {
       return {
@@ -69,6 +72,7 @@
         showmemeus: false,
         searchKey: '',
         isShowPub: false,
+        editorLoading: true,
         newcon: '',
         setval: {
           time: Date.now(),
@@ -77,7 +81,8 @@
       }
     },
     components: {
-      Login
+      Login,
+      Loading
     },
     watch: {
       '$route': function () {
@@ -109,6 +114,12 @@
           time: Date.now(),
           val: val
         }
+      },
+      showPub: async function () {
+        this.isShowPub = true
+        const editor = await import('~components/editor.vue')
+        Vue.component('editor', editor)
+        this.editorLoading = false
       },
       // 发布情报
       submitNews: async function () {
