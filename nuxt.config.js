@@ -1,3 +1,4 @@
+const Config = require('./config')
 module.exports = {
   /*
   ** Headers of the page
@@ -40,6 +41,7 @@ module.exports = {
   */
   build: {
     vendor: ['vue-i18n'],
+    publicPath: `${Config.CDN}.nuxt/dist/`,
     /*
     ** Run ESLINT on save
     */

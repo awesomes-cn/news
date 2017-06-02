@@ -34,7 +34,7 @@
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3334 nuxt",
     "windev": "nuxt",
-    "build": "nuxt build && node tools/build.js && webon deploy .nuxt/dist -f",
+    "build": "nuxt build && webon deploy .nuxt/dist -f",
     "start": "HOST=0.0.0.0 PORT=3334 nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
