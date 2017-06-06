@@ -1,6 +1,7 @@
-# new-awesomes
+# News
 
-> Awesomes.cn new version
+> Front-End news center. It is under developing now!
+
 
 ## Build Setup
 
