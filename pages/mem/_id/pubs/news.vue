@@ -1,9 +1,7 @@
 <template lang="pug">
-  div.topics-wraper
-    div.container
-      div.news-wraper
-        div.inner
-          news(:newss="newss" flag="news-list")
+  div.container
+    div.news-wraper
+      news(:newss="newss" flag="news-list")
 </template>
 
 

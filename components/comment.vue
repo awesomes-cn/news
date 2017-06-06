@@ -2,13 +2,7 @@
   div.comment-wraper
     div.editor-go
       button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
-      editor(:flag="flag"  v-model="comcon" v-bind:setval="setval" placeholder="我有话说")
-      // div.row.align-items-center
-      //   div.col
-      //     span {{editing ? '编辑评论中' : '发布评论'}}
-      //     a.cancel-edit(href="javascript:void(0)" @click="cancelEditing" v-show="editing") 取消编辑
-      //   div.col(style="text-align: right")
-      //     button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
+      editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说")
 
     div.citem(v-for="(item, index) in coms")
       nuxt-link(:to="'/mem/' + item.mem.id")
@@ -35,6 +29,7 @@
 <script>
   import axios from '~plugins/axios'
   import $ from 'jquery'
+  import Vue from 'vue'
   export default {
     props: ['flag', 'typ', 'idcd'],
     data () {
@@ -124,19 +119,14 @@
       // 删除评论
       destroy: function (item, index) {
         let self = this
-        this.$confirm('确认删除该评论？不是手抖吧！', '确认删除', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
+        if (confirm('确认删除该评论？')) {
           axios().delete(`comment/${item.id}`).then(res => {
             if (res.data.status) {
               this.$alert('success', '删除评论成功！')
               self.coms.splice(index, 1)
             }
           })
-        }).catch(() => {
-        })
+        }
       },
 
       // 滚到编辑器
@@ -187,6 +177,10 @@
     },
     created () {
       this.list()
+    },
+    async mounted () {
+      const editor = await import('~components/editor.vue')
+      Vue.component('editor', editor)
     }
   }
 </script>

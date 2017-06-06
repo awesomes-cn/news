@@ -42,7 +42,7 @@
         template(v-if="session")
           template(v-if="session.iswebker === 'YES'")
             div
-              editor(flag="news-pub" v-if="!editorLoading"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评")
+              editor(flag="news-pub" v-if="!editorLoading"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评、小知识点")
               Loading(v-else)
             div.btn-wraper
               button.btn.btn-danger(@click="submitNews")

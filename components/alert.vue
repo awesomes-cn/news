@@ -25,7 +25,6 @@
     right: 0; 
     border-radius: 0;
     text-align: center;
-    opacity: 0.9;
     .close {
       outline: none;
     }
