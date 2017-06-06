@@ -9,6 +9,12 @@
       div.middle    
         article(v-html="marked(item.con)")
         div.infos
+          nuxt-link(:to="/mem/ + item.mem.id" class="tx-wrap")
+            img.tx(:src="cdn(item.mem.avatar, 'mem')")
+          
+          a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor")
+            icon(name="arrow-up"  width="18px" alone="true") {{item.favor}}
+
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom")
             icon(name="comment"  width="16px") {{item.comment}} 条评论
           span  {{timeago(item.created_at)}}
@@ -93,17 +99,24 @@
         flex-direction: column;
         align-items: center;
         width: 50px;
-        flex-shrink: 0
+        flex-shrink: 0;
+        @media (max-width: 576px) {
+          display: none;
+        }
       }
 
       .middle {
         flex-grow: 1;
+        overflow: hidden;
       }
 
       .right {
         width: 70px;
         text-align: right;
         flex-shrink: 0;
+        @media (max-width: 576px) {
+          display: none;
+        }
 
         .tx {
           width: 30px;
@@ -166,6 +179,26 @@
       .admin-oper {
         display: none;
       }
+
+      .tx-wrap {
+        display: none;
+        .tx {
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+        }
+
+        @media (max-width: 576px) {
+          display: inline-block;
+        }
+      }
+
+      a.up {
+        padding: .2rem;
+        
+      }
+
+      
     }
 
     .com-wrap {
