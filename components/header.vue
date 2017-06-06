@@ -130,16 +130,16 @@
           this.$alert('danger', '内容字数不能小于10')
           return
         }
-        let self = this
 
         let res = await axios().post('/news', {con: this.newcon})
-        self.setEditVal('')
+        this.setEditVal('')
         if (!res.data.status) {
           this.$alert('danger', '发布失败，没有权限')
           return
         }
         this.$alert('success', '发布成功')
-        self.newss.unshift(res.data.item)
+        console.log(this.isShowPub)
+        this.isShowPub = false
       }
     }
   }
