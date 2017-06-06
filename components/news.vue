@@ -2,7 +2,7 @@
   div.repo-news
     div.news-item(v-for="item in newss")
       div.left
-        a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor")
+        a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor"  title="有用")
           icon(name="arrow-up"  width="18px" alone="true")
           div {{item.favor}}
         
@@ -12,18 +12,24 @@
           nuxt-link(:to="/mem/ + item.mem.id" class="tx-wrap")
             img.tx(:src="cdn(item.mem.avatar, 'mem')")
           
-          a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor")
+          a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor" title="有用")
             icon(name="arrow-up"  width="18px" alone="true") {{item.favor}}
+          
+          
 
-          a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom")
-            icon(name="comment"  width="16px") {{item.comment}} 条评论
+          a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论")
+            icon(name="comment"  width="16px") {{item.comment}} 评论
+          // a(href="javascript:void(0)"  title="分享")
+          //   icon(name="share"  width="16px")  
           span  {{timeago(item.created_at)}}
 
+         
+
           template(v-if="session && session.id === item.mem.id")
-            a.admin-oper(href="javascript:void(0)" @click="destroy(item)")
+            a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
 
-            a.admin-oper(href="javascript:void(0)")
+            a.admin-oper(href="javascript:void(0)"  title="编辑")
               icon(name="pen"  width="14px")
           
         div.com-wrap(v-if="item.isShowCom")
@@ -195,9 +201,12 @@
 
       a.up {
         padding: .2rem;
-        
-      }
+        display: none;
 
+        @media (max-width: 576px) {
+          display: inline-block;
+        }
+      }
       
     }
 
