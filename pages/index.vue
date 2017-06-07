@@ -2,25 +2,34 @@
   div.container
     div.toolbar
     news(:newss="newss" flag="news-list")
+    div.load-wraper
+      button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
+        icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
+      span.nomore(v-else) 没有更多了
 </template>
 
 
 <script>
   import axios from '~plugins/axios'
   import News from '~components/news.vue'
-  let pagesize = 10
+  let pagesize = 12
   export default {
     name: 'home',
     data () {
       return {
         pagesize: pagesize,
         newss: [],
-        pagetotal: 0
+        pagetotal: 0,
+        currentPage: 1,
+        loading: false
       }
     },
     computed: {
       session () {
         return this.$store.state.session
+      },
+      hasmore () {
+        return this.pagetotal >= pagesize * this.currentPage
       }
     },
     head () {
@@ -42,8 +51,8 @@
         }
       },
 
-      list: async function () {
-        let page = 1
+      fetchNews: async function () {
+        let page = this.currentPage
         let res = await axios().get('news', {
           params: {
             limit: pagesize,
@@ -55,28 +64,19 @@
         newss.forEach(item => {
           item.isShowCom = false
         })
-        this.newss = newss
+        this.newss = this.newss.concat(newss)
         this.pagetotal = res.data.count
       },
 
-      // 获取最佳
-      fetchBest: function (period) {
-        this.period = period
-        axios().get('news/best', {
-          params: {
-            period: period
-          }
-        }).then(res => {
-          if (res.data !== 'nobest') {
-            res.data.isShowCom = false
-          }
-          this.best = [res.data]
-        })
+      loadMoreNews: async function () {
+        this.loading = true
+        this.currentPage ++
+        await this.fetchNews()
+        this.loading = false
       }
     },
     created () {
-      // this.fetchBest('week')
-      this.list()
+      this.fetchNews()
     }
   }
 </script>
@@ -89,4 +89,20 @@
   .toolbar {
     height: 30px;
   }
+
+  .load-wraper {
+    text-align: center;
+    .load-more {
+      border: #DDD 1px dashed;
+      padding: 15px 30px;
+      background-color: #FFF;
+      outline: none;
+      color: #888888
+    }
+    .nomore {
+      padding: 50px 0;
+      color: #9c9c9c;
+    }
+  }
+  
 </style>
