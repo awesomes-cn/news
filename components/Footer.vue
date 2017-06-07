@@ -1,7 +1,11 @@
 <template lang="pug">
   footer
-    div.container
-          
+    span belong to 
+    a(href="http://www.awesomes.cn") @awesomes.cn
+    span   opened on 
+    a(href="https://github.com/awesomes-cn/news ") github
+    span   build with vue and nuxt
+      
 </template>
 
 <script>
@@ -18,34 +22,7 @@
     border-top: 1px solid #e9eaef;
     background: #ECECEC;
     color: #999;
-    font-size: 12px;
-  }
-
-  .txt-right {
-    text-align: right
-  }
-  
-  .links {
-    a {
-      margin: 0 10px;
-    }
-  }
-
-  .relations {
-    a {
-      display: inline-block;
-      margin: 20px;
-      color: #AAA;
-      margin-left: 0;
-    }
-  }
-
-  .friends {
-    a {
-      display: inline-block;
-      margin: 10px;
-      margin-left: 0
-    }
+    text-align: center
   }
 
 </style>
