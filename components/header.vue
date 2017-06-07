@@ -29,59 +29,33 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          button.pub-btn(@click="showPub")
+          button.pub-btn(@click="ishowPub++")
             icon(name="plus"  width="20px") 发布情报
     
     // 发布情报
-    transition(name="custom-classes-transition" enter-active-class="animated bounceInDown" leave-active-class="animated bounceOutUp")  
-      div.pub-news(v-if="isShowPub")
-        div.title
-          h5 发布情报
-          a.close(href="javascript:void(0)" @click="isShowPub = false")
-            icon(name="close")
-        template(v-if="session")
-          template(v-if="session.iswebker === 'YES'")
-            div
-              editor(flag="news-pub" v-if="!editorLoading"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评、小知识点")
-              Loading(v-else)
-            div.btn-wraper
-              button.btn.btn-danger(@click="submitNews")
-                icon(name="send" width="16px") 发布
-          template(v-if="session.iswebker === 'NO'")
-            div.alert.alert-warning
-              span 为了保证质量，我们目前只针对
-              nuxt-link(to="/webker") 情报员
-              span 开放发布权限
-        template(v-if="!session")
-          button.btn.btn-primary(@click="showLogin()") 请登录后发布
+    pub(:isshow="ishowPub")
     // 登录框
     login   
 
 </template>
 
 <script>
-  import axios from '~plugins/axios'
   import Cookie from 'js-cookie'
   import Login from './login'
-  import Vue from 'vue'
   import Loading from '~components/loading'
+  import Pub from '~components/pub'
   export default {
     data () {
       return {
         isHideMenu: true,
         showmemeus: false,
         searchKey: '',
-        isShowPub: false,
-        editorLoading: true,
-        newcon: '',
-        setval: {
-          time: Date.now(),
-          val: ''
-        }
+        ishowPub: 1
       }
     },
     components: {
       Login,
+      Pub,
       Loading
     },
     watch: {
@@ -107,39 +81,6 @@
           return
         }
         this.$router.push({path: '/search', query: {q: this.searchKey}})
-      },
-
-      setEditVal: function (val) {
-        this.setval = {
-          time: Date.now(),
-          val: val
-        }
-      },
-      showPub: async function () {
-        this.isShowPub = true
-        const editor = await import('~components/editor.vue')
-        Vue.component('editor', editor)
-        this.editorLoading = false
-      },
-      // 发布情报
-      submitNews: async function () {
-        if (this.showLogin()) {
-          return
-        }
-        if (this.newcon.trim().length < 10) {
-          this.$alert('danger', '内容字数不能小于10')
-          return
-        }
-
-        let res = await axios().post('/news', {con: this.newcon})
-        this.setEditVal('')
-        if (!res.data.status) {
-          this.$alert('danger', '发布失败，没有权限')
-          return
-        }
-        this.$alert('success', '发布成功')
-        console.log(this.isShowPub)
-        this.isShowPub = false
       }
     }
   }
@@ -280,45 +221,6 @@
     }
     .show-small {
       display: block;
-    }
-  }
-
-  .pub-news {
-    padding: 50px;
-    padding-top: 30px;
-    background-color: #FFF;
-    position: fixed;
-    z-index: 80;
-    width: 100%;
-    max-width: 500px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 60px;
-    border-bottom: #EEE 1px solid;
-    box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
-    border-left: #FAFAFA 1px solid;
-
-    .meditor {
-      min-height: 100px;
-    }
-    .btn {
-      width: 100%;
-    }
-
-    .btn-wraper {
-      margin-top: 10px;
-    }
-
-    .title {
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 15px;
     }
   }
 

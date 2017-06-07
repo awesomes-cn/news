@@ -14,8 +14,6 @@
           
           a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor" title="有用")
             icon(name="arrow-up"  width="18px" alone="true") {{item.favor}}
-          
-          
 
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论")
             icon(name="comment"  width="16px") {{item.comment}} 评论
@@ -23,13 +21,11 @@
           //   icon(name="share"  width="16px")  
           span  {{timeago(item.created_at)}}
 
-         
-
           template(v-if="session && session.id === item.mem.id")
             a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
 
-            a.admin-oper(href="javascript:void(0)"  title="编辑")
+            a.admin-oper(href="javascript:void(0)"  title="编辑" @click="showEdit(item)")
               icon(name="pen"  width="14px")
           
         div.com-wrap(v-if="item.isShowCom")
@@ -37,17 +33,25 @@
       div.right
         nuxt-link(:to="/mem/ + item.mem.id")
           img.tx(:src="cdn(item.mem.avatar, 'mem')")
-
+    pub(:isshow="ishowPub" action="edit" v-bind:editem="editItem")
 </template>
 
 
 <script>
   import Comment from '~components/comment.vue'
   import axios from '~plugins/axios'
+  import Pub from '~components/pub'
   export default {
     props: ['newss', 'flag'],
+    data () {
+      return {
+        ishowPub: 1,
+        editItem: {}
+      }
+    },
     components: {
-      Comment
+      Comment,
+      Pub
     },
     computed: {
       session () {
@@ -78,6 +82,11 @@
           this.newss.splice(index, 1)
           this.$alert('success', '删除情报成功')
         })
+      },
+      // 编辑
+      showEdit: function (item) {
+        this.ishowPub++
+        this.editItem = item
       }
     }
   }

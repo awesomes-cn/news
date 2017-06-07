@@ -6,7 +6,6 @@
 
     //   a(href="javascript:void(0)" title="预览" @click="preview" v-bind:class="'active-' + (view === 'preview')")
     //     icon(name="eye")
-       
     div.con(v-show="view == 'editor'")
       textarea(:id="'meditor-' + flag" v-bind:placeholder="placeholder")
     div.preview(v-show="view == 'preview'" v-html="marked(htmlstr)")
@@ -26,8 +25,7 @@
     data () {
       return {
         htmlstr: '',
-        view: 'editor',
-        
+        view: 'editor'
       }
     },
     watch: {
@@ -56,16 +54,11 @@
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
       })
       markdown_editor.on('focus', function () {
-        console.log('要写了')
       })
 
       markdown_editor.on("change",function(editor){
         self.$emit('input', editor.getValue())
       })
-
-      // if (this.setval) {
-      //   markdown_editor.setValue(this.setval.val)
-      // }
     }
   }
 </script>

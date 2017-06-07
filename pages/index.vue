@@ -13,13 +13,37 @@
   import axios from '~plugins/axios'
   import News from '~components/news.vue'
   let pagesize = 12
+
+  let fetchData = async (page) => {
+    let res = await axios().get('news', {
+      params: {
+        limit: pagesize,
+        skip: pagesize * (page - 1)
+      }
+    })
+
+    let newss = res.data.items
+    newss.forEach(item => {
+      item.isShowCom = false
+    })
+    return {
+      newss: newss,
+      pagetotal: res.data.count
+    }
+  }
+  
   export default {
     name: 'home',
+    async asyncData ({ req, params, query }) {
+      let data = await fetchData(1)
+      return {
+        newss: data.newss,
+        pagetotal: data.pagetotal
+      }
+    },
     data () {
       return {
         pagesize: pagesize,
-        newss: [],
-        pagetotal: 0,
         currentPage: 1,
         loading: false
       }
@@ -51,21 +75,10 @@
         }
       },
 
-      fetchNews: async function () {
-        let page = this.currentPage
-        let res = await axios().get('news', {
-          params: {
-            limit: pagesize,
-            skip: pagesize * (page - 1)
-          }
-        })
-
-        let newss = res.data.items
-        newss.forEach(item => {
-          item.isShowCom = false
-        })
-        this.newss = this.newss.concat(newss)
-        this.pagetotal = res.data.count
+      fetchNews: async function (isInit) {
+        let data = await fetchData(this.currentPage)
+        this.newss = this.newss.concat(data.newss)
+        this.pagetotal = data.pagetotal
       },
 
       loadMoreNews: async function () {
