@@ -175,10 +175,10 @@
         this.list()
       }
     },
-    created () {
+    mounted () {
       this.list()
     },
-    async mounted () {
+    async created () {
       const editor = await import('~components/editor.vue')
       Vue.component('editor', editor)
     }
