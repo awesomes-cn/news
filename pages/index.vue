@@ -1,11 +1,12 @@
 <template lang="pug">
-  div.container
-    div.toolbar
-    news(:newss="newss" flag="news-list")
-    div.load-wraper
-      button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
-        icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
-      span.nomore(v-else) 没有更多了
+  div.home-box
+    div.home-container
+      div.toolbar
+      news(:newss="newss" flag="news-list")
+      div.load-wraper
+        button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
+          icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
+        span.nomore(v-else) 没有更多了
 </template>
 
 
@@ -96,8 +97,18 @@
 
 
 <style lang="scss" scoped>
-  .container {
+  .home-box {
+    background-color: rgba(244, 245, 245, 0.63);
+    padding: 30px 0;
+    @media (max-width: 576px) {
+      padding: 0;
+    }
+  }
+  .home-container {
     max-width: 800px;
+    background-color: #FFF;
+    margin: 0 auto;
+    padding-bottom: 40px;
   }
   .toolbar {
     height: 30px;

@@ -29,7 +29,7 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          button.pub-btn(@click="ishowPub++")
+          a.pub-btn(href="javascript:void(0)" @click="ishowPub++")
             icon(name="plus"  width="20px") 发布情报
     
     // 发布情报
@@ -206,9 +206,7 @@
   }
 
   .pub-btn {
-    background-color: #FFF;
-    border: #8a6d3b 1px solid;
-    color: #8a6d3b
+    color: #449d44;
   }
 
   .show-small {

@@ -12,5 +12,4 @@ let processAssets = () => {
   console.log('index.html资源文件路径替换完毕')
 }
 
-
 processAssets()

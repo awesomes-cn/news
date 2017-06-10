@@ -95,13 +95,17 @@
 
 <style lang="scss">
   .repo-news {
-    background-color: #FFF;
-  
+    padding: 30px;
+     @media (max-width: 576px) {
+        padding: 15px;
+      }
     .news-item {
       background-color: #FFF;
       padding: 30px 0;
       display: flex;
       align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: #f8f9f9 1px solid;
 
       &:hover {
         .admin-oper {
