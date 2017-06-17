@@ -9,7 +9,7 @@ npm-debug.log
 .nuxt/dist/*.js
 
 # Nuxt generate
-dist
+# dist
 
 
 config.json
