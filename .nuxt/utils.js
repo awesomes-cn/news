@@ -42,7 +42,7 @@ export function getContext (context) {
   let ctx = {
     isServer: !!context.isServer,
     isClient: !!context.isClient,
-    isDev: false,
+    isDev: true,
     store: context.store,
     route: (context.to ? context.to : context.route),
     error: context.error,
@@ -70,6 +70,7 @@ export function getContext (context) {
   if (context.req) ctx.req = context.req
   if (context.res) ctx.res = context.res
   // Inject external plugins in context
+  
   
   
   

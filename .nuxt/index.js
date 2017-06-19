@@ -92,6 +92,11 @@ require('~plugins/icon')
 require('~plugins/common')
 
 if (process.browser) {
+  require('~plugins/ba.js')
+  
+}
+
+if (process.browser) {
   require('~plugins/pagination.js')
   
 }

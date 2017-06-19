@@ -7,10 +7,6 @@
             img.logo(src="../assets/img/logo-50.png")
             span.logo-txt.hide-small 前端情报局
         div.middle
-          div.inner(:style="isHideMenu ? 'height: 60px' : ''")
-            // nuxt-link(to="/weuse" ) 大牛在用
-            // nuxt-link(to="/subjects" ) 专题  
-
         div.right
           a.hide-small(href="" v-show="session" @mouseover="showmemeus = true" @mouseleave="showmemeus = false")
             icon(name="more" width="20px")

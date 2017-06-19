@@ -1,19 +1,20 @@
 <template lang="pug">
   div.home-box
     div.home-container
-      div.toolbar
-      news(:newss="newss" flag="news-list")
-      div.load-wraper
-        button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
-          icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
-        span.nomore(v-else) 没有更多了
+      div.slogn 每天刷一刷，跟上前端快步伐
+      div.list-inner
+        news(:newss="newss" flag="news-list")
+        div.load-wraper
+          button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
+            icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
+          span.nomore(v-else) 没有更多了
 </template>
 
 
 <script>
   import axios from '~plugins/axios'
   import News from '~components/news.vue'
-  let pagesize = 12
+  let pagesize = 15
 
   let fetchData = async (page) => {
     let res = await axios().get('news', {
@@ -76,7 +77,7 @@
         }
       },
 
-      fetchNews: async function (isInit) {
+      fetchNews: async function () {
         let data = await fetchData(this.currentPage)
         this.newss = this.newss.concat(data.newss)
         this.pagetotal = data.pagetotal
@@ -90,7 +91,6 @@
       }
     },
     created () {
-      this.fetchNews()
     }
   }
 </script>
@@ -106,12 +106,25 @@
   }
   .home-container {
     max-width: 800px;
-    background-color: #FFF;
     margin: 0 auto;
+    padding-bottom: 40px;
+  }
+
+  .slogn {
+    text-align: center;
+    padding: 20px;
+    background-image: linear-gradient( 135deg, #ec971f 0%, #d83b3b 100%);
+    color: #ffffff;
+    // border-bottom: #a02e2e 6px solid;
+  }
+
+  .list-inner {
+    background-color: #FFF;
     padding-bottom: 40px;
   }
   .toolbar {
     height: 30px;
+    display: flex;
   }
 
   .load-wraper {

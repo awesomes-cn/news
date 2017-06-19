@@ -33,6 +33,7 @@
       div.right
         nuxt-link(:to="/mem/ + item.mem.id")
           img.tx(:src="cdn(item.mem.avatar, 'mem')")
+        a.comm-bage(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论" v-show="item.comment > 0") {{item.comment}} 
     pub(:isshow="ishowPub" action="edit" v-bind:editem="editItem")
 </template>
 
@@ -133,6 +134,7 @@
         width: 70px;
         text-align: right;
         flex-shrink: 0;
+        position: relative;
         @media (max-width: 576px) {
           display: none;
         }
@@ -142,6 +144,21 @@
           height: 30px;
           border-radius: 100%;
           margin-right: 5px;
+        }
+
+        .comm-bage {
+          display: inline-block;
+          color: #fff;
+          font-size: 12px;
+          display: inline-block;
+          background-color: #3e9ef1;
+          padding: 2px 7px;
+          border-radius: 100px;
+          position: absolute;
+          top: -10px;
+          right: -12px;
+          border: 2px solid #fff;
+          opacity: 0.9
         }
       }
 
