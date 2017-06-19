@@ -59,7 +59,6 @@
         })
       },
       thirtyLogin: function (url) {
-        url = 'http://192.168.26.128:3333/auth'
         window.open(url, 'newwindow', 'width=500,height=500')
       }
     },
