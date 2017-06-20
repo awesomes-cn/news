@@ -1,7 +1,7 @@
 <template lang="pug">
   div.webker-wrap
     div.outerwap
-      div.inner
+      div.inner-box
         div.banner
           h2 情报员
         article
@@ -9,8 +9,12 @@
 
 
           h4 申请条件
-          p GitHub 关注数 >= 100 （非硬性规定，在大厂工作或其它特殊原因可无视该条件）
-          p 不发布垃圾无用的信息
+          ul
+            li GitHub 关注数 >= 100 （非硬性规定，在大厂工作或其它特殊原因可无视该条件）
+            li 不发布垃圾无用的信息
+            li 发布的内容仅限前端和 Node，可以是最新的新闻、前端框架重要版本发布、前端小技能
+            li 目前未对字数做限定，但是字数不能过多，近限于短讯
+
           
           h4 我要申请
           template(v-if="session && session.iswebker === 'YES'")
@@ -54,7 +58,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
   .page-webker {
     background: #f7f8fa;
     .webker-wrap {
@@ -69,8 +73,9 @@
         max-width: 650px;
 
 
-        .inner {
+        .inner-box {
           background-color: #FFF;
+          width: 100%;
           padding: 50px;
         }
       }
