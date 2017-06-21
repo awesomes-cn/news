@@ -17,7 +17,12 @@ Vue.use({
       if (!name || name === '') {
         name = 'default.png'
       }
+      // 图片网络地址
       if (/^http(s)?:\/\//.test(name)) {
+        return name
+      }
+      // 本地图片
+      if (/^blob:/.test(name)) {
         return name
       }
       let url = `https://awesomes.oss-cn-beijing.aliyuncs.com/${folder}/${name}`

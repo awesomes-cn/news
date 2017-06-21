@@ -8,6 +8,7 @@
         
       div.middle    
         article(v-html="marked(item.con)")
+        img.img-con(:src="cdn(item.picture, 'news')" v-if="item.picture")
         div.infos
           nuxt-link(:to="/mem/ + item.mem.id" class="tx-wrap")
             img.tx(:src="cdn(item.mem.avatar, 'mem')")
@@ -104,7 +105,7 @@
       background-color: #FFF;
       padding: 30px 0;
       display: flex;
-      align-items: flex-start;
+      // align-items: flex-start;
       margin-bottom: 20px;
       border-bottom: #f8f9f9 1px solid;
 
@@ -128,6 +129,12 @@
       .middle {
         flex-grow: 1;
         overflow: hidden;
+        padding-left: 10px;
+
+        .img-con {
+          max-width: 80%;
+          margin-bottom: 20px;
+        }
       }
 
       .right {
@@ -170,7 +177,6 @@
       article {
         font-size: 1.2rem;
         line-height: 28px;
-        padding-left: 10px;
         a {
           color: #025aa5;
           border-bottom: #025aa5 1px dashed;
@@ -201,7 +207,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding-left: 10px;
+      // padding-left: 10px;
 
 
       a {

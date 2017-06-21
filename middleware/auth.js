@@ -3,7 +3,7 @@ import Cookie from 'js-cookie'
 
 export default function ({ store, redirect, isServer, req }) {
   if (isServer && !store.state.session) {
-    let domain = req.headers.host.split(':')[0].replace(/^\w+/, '')
+    let domain = req.headers.host.split(':')[0].replace(/^[A-Za-z]+/, '')
     if (!req.headers.cookie) {
       store.commit('setUser', null)
       return
