@@ -48,7 +48,8 @@
     data () {
       return {
         ishowPub: 1,
-        editItem: {}
+        editItem: {},
+        favorIDs: []
       }
     },
     components: {

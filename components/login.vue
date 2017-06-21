@@ -12,10 +12,10 @@
         button.btn.btn-default.sub-btn(type="submit" @click="showEmailLogin = true" v-show="!showEmailLogin") 切换到邮箱登录
       template(v-if="showEmailLogin")    
         div.form-group
-          input.form-control(type="text" v-model="uid" placeholder="邮箱" @keyup.enter="submit")
+          input.form-control(type="text" v-model="uid" placeholder="邮箱" v-on:keyup.enter="login")
 
         div.form-group
-          input.form-control(type="password" v-model="pwd" placeholder="密码" @keyup.enter="submit")
+          input.form-control(type="password" v-model="pwd" placeholder="密码" v-on:keyup.enter="login")
 
         div.form-group
           button.btn.btn-primary.sub-btn(@click="login" type="submit") 登录
@@ -55,6 +55,7 @@
             Cookie.set('awlogin', res.data.token, {domain: window.location.hostname.replace(/^[A-Za-z]+/, '')})
             self.hideLogin()
             this.$store.commit('setUser', res.data.mem)
+            window.location.reload()
           }
         })
       },

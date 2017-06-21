@@ -16,8 +16,8 @@
   import News from '~components/news.vue'
   let pagesize = 15
 
-  let fetchData = async (page) => {
-    let res = await axios().get('news', {
+  let fetchData = async (page, req) => {
+    let res = await axios(req).get('news', {
       params: {
         limit: pagesize,
         skip: pagesize * (page - 1)
@@ -37,7 +37,7 @@
   export default {
     name: 'home',
     async asyncData ({ req, params, query }) {
-      let data = await fetchData(1)
+      let data = await fetchData(1, req)
       return {
         newss: data.newss,
         pagetotal: data.pagetotal
