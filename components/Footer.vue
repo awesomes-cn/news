@@ -1,9 +1,9 @@
 <template lang="pug">
   footer
     span belong to 
-    a(href="http://www.awesomes.cn") @awesomes.cn
+    a(href="http://www.awesomes.cn") @Awesomes.cn
     span   opened on 
-    a(href="https://github.com/awesomes-cn/news ") github
+    a(href="https://github.com/awesomes-cn/news ") GitHub
     span   build with vue and nuxt
       
 </template>

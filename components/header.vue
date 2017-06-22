@@ -16,9 +16,10 @@
             a(href="javascript:void(0)" @click="logout()") 注 销
 
           a(href="javascript:void(0)" @click="showLogin()" v-show="!session") 登录
-
-          nuxt-link(:to="'/mem/' + (session || {}).id" v-show="session") 
+          
+          nuxt-link(:to="'/mem/' + (session || {}).id" v-show="session" v-bind:title="session && session.iswebker === 'YES' ? '你是情报员' : ''") 
             img.tx(:src="cdn((session || {}).avatar, 'mem')")
+            span.webk-label(v-if="session && session.iswebker === 'YES'") 员
             
 
           nuxt-link.hide-small.notifiys(to="/notifications" v-show="session" v-bind:class="$store.state.unreadNotifiy > 0 ? 'active' : ''")
@@ -96,6 +97,7 @@
 
     a {
       text-decoration: none;
+      position: relative;
       height: 60px;
       color: #7b7676;
       padding: 0 20px;
@@ -216,6 +218,19 @@
     .show-small {
       display: block;
     }
+  }
+
+  .webk-label {
+    background-color: #ec971f;
+    color: #FFF;
+    padding: 2px 7px;
+    font-size: 12px;
+    border-radius: 100%;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform-origin-x: 0;
+    transform: scale(0.8);
   }
 
 </style>
