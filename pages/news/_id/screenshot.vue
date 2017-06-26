@@ -1,7 +1,6 @@
 <template lang="pug">
   div.screen-box
     div.slogn
-      // p 每天刷一刷，跟上前端快步伐
       img.logo(src="../../../assets/img/logo-50.png")
       h4(style="margin-top: 10px;") 前端情报局
       
@@ -19,22 +18,6 @@
       let res = await axios().get(`news/${params.id}`)
       return {
         news: res.data
-      }
-    },
-    methods: {
-      // 跳转
-      goto: async function (direction) {
-        let res = await axios().get(`news/${this.news.id}/prevnext`, {
-          params: {
-            direction: direction
-          }
-        })
-        let distID = res.data.dist
-        if (distID === 0) {
-          this.$alert('warning', '已经到头了')
-          return
-        }
-        this.$router.push(`/news/${distID}`)
       }
     }
   }
@@ -67,6 +50,10 @@
         margin-top: 10px;
         position: relative;
         padding: 40px;
+
+        img {
+          max-width: 100%
+        }
 
         @media (max-width: 576px) {
           padding: 50px 20px;

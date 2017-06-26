@@ -18,16 +18,20 @@
 
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论")
             icon(name="comment"  width="16px") {{item.comment}} 评论
-          // a(href="javascript:void(0)"  title="分享")
-          //   icon(name="share"  width="16px")  
+          
           span  {{timeago(item.created_at)}}
 
           template(v-if="session && session.id === item.mem.id")
+            nuxt-link(:to="'/news/' + item.id + '/share'" class="admin-oper" title="分享")
+              icon(name="share"  width="16px")
+
             a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
 
             nuxt-link(:to="'/pub?id=' + item.id" class="admin-oper" title="编辑")
               icon(name="pen"  width="14px")
+
+              
           
         div.com-wrap(v-if="item.isShowCom")
           comment(:flag="'news-comment-' + flag + '-' + item.id" typ="NEWS" v-bind:idcd="item.id")

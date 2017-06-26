@@ -8,8 +8,6 @@ Vue.use(Router)
 
 const _84fd38fe = () => import('/home/hxh/share/news/pages/index.vue' /* webpackChunkName: "pages/index" */)
 
-const _691bd4e5 = () => import('/home/hxh/share/news/pages/webker.vue' /* webpackChunkName: "pages/webker" */)
-
 const _da1d5330 = () => import('/home/hxh/share/news/pages/site.vue' /* webpackChunkName: "pages/site" */)
 
 const _2df074f1 = () => import('/home/hxh/share/news/pages/site/link.vue' /* webpackChunkName: "pages/site-link" */)
@@ -22,6 +20,10 @@ const _3a9e6574 = () => import('/home/hxh/share/news/pages/site/capa.vue' /* web
 
 const _bcad4526 = () => import('/home/hxh/share/news/pages/site/history.vue' /* webpackChunkName: "pages/site-history" */)
 
+const _691bd4e5 = () => import('/home/hxh/share/news/pages/webker.vue' /* webpackChunkName: "pages/webker" */)
+
+const _26581e33 = () => import('/home/hxh/share/news/pages/test.vue' /* webpackChunkName: "pages/test" */)
+
 const _4f51cd97 = () => import('/home/hxh/share/news/pages/notifications.vue' /* webpackChunkName: "pages/notifications" */)
 
 const _33a700c4 = () => import('/home/hxh/share/news/pages/mem.vue' /* webpackChunkName: "pages/mem" */)
@@ -32,13 +34,13 @@ const _456a260c = () => import('/home/hxh/share/news/pages/mem/_id/pubs/news.vue
 
 const _25e78c28 = () => import('/home/hxh/share/news/pages/pub.vue' /* webpackChunkName: "pages/pub" */)
 
-const _26581e33 = () => import('/home/hxh/share/news/pages/test.vue' /* webpackChunkName: "pages/test" */)
-
 const _55855597 = () => import('/home/hxh/share/news/pages/develop/icons.vue' /* webpackChunkName: "pages/develop-icons" */)
 
 const _4c03a2e2 = () => import('/home/hxh/share/news/pages/news/_id/index.vue' /* webpackChunkName: "pages/news-id" */)
 
 const _6193c0f4 = () => import('/home/hxh/share/news/pages/news/_id/screenshot.vue' /* webpackChunkName: "pages/news-id-screenshot" */)
+
+const _1dd97b6f = () => import('/home/hxh/share/news/pages/news/_id/share.vue' /* webpackChunkName: "pages/news-id-share" */)
 
 
 
@@ -78,11 +80,6 @@ export default new Router({
 			name: "index"
 		},
 		{
-			path: "/webker",
-			component: _691bd4e5,
-			name: "webker"
-		},
-		{
 			path: "/site",
 			component: _da1d5330,
 			name: "site",
@@ -115,6 +112,16 @@ export default new Router({
 			]
 		},
 		{
+			path: "/webker",
+			component: _691bd4e5,
+			name: "webker"
+		},
+		{
+			path: "/test",
+			component: _26581e33,
+			name: "test"
+		},
+		{
 			path: "/notifications",
 			component: _4f51cd97,
 			name: "notifications"
@@ -142,11 +149,6 @@ export default new Router({
 			name: "pub"
 		},
 		{
-			path: "/test",
-			component: _26581e33,
-			name: "test"
-		},
-		{
 			path: "/develop/icons",
 			component: _55855597,
 			name: "develop-icons"
@@ -160,6 +162,11 @@ export default new Router({
 			path: "/news/:id?/screenshot",
 			component: _6193c0f4,
 			name: "news-id-screenshot"
+		},
+		{
+			path: "/news/:id?/share",
+			component: _1dd97b6f,
+			name: "news-id-share"
 		}
   ]
 })
