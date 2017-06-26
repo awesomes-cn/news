@@ -6,13 +6,13 @@
       template(v-if="session.iswebker === 'YES'")
         div.editor-center
           template(v-if="!editorLoading")
-            editor(flag="news-pub"  v-model="newcon" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评、小知识点")
+            editor(flag="news-pub"  v-model="editem.con" v-bind:setval="setval" placeholder="有关前端库的新闻、感想、观点短评、小知识点")
             div.upload-outer
               icon(name="plus" width="17px") 上传图片
-              upload(folder="news" v-model="picture" v-bind:changeat="changeat" v-on:submit="submit")
-            button.btn.btn-warning.btn-sm(v-if="picture" @click="picture = ''" style="margin-top: 5px;")
+              upload(folder="news" v-model="editem.picture" v-bind:changeat="changeat" v-on:submit="submit")
+            button.btn.btn-warning.btn-sm(v-if="editem.picture" @click="editem.picture = ''" style="margin-top: 5px;")
               icon(name="trash" width="13px") 删除图片
-            img.preview(:src="cdn(picture, 'news')" v-show="picture")
+            img.preview(:src="cdn(editem.picture, 'news')" v-show="editem.picture")
             
 
             div.btn-wraper
@@ -43,8 +43,6 @@
     data () {
       return {
         editorLoading: true,
-        newcon: '',
-        picture: '',
         changeat: 1,
         submiting: false,
         setval: {
@@ -56,11 +54,6 @@
     },
     components: {
       Loading
-    },
-    watch: {
-      // 'editem': function () {
-      //   this.picture = this.editem.picture
-      // }
     },
     computed: {
       session () {
@@ -85,13 +78,13 @@
         if (this.showLogin()) {
           return
         }
-        if (this.newcon.trim().length < 10) {
+        if (this.editem.con.trim().length < 10) {
           this.$alert('danger', '内容字数不能小于10')
           return
         }
         this.submiting = true
 
-        if (/^blob:/.test(this.picture)) {
+        if (/^blob:/.test(this.editem.picture)) {
           this.changeat += 1
         } else {
           this.submitGo()
@@ -109,10 +102,7 @@
 
       // 新增情报
       saveAction: async function () {
-        let res = await axios().post('news', {
-          con: this.newcon,
-          picture: this.picture
-        })
+        let res = await axios().post('news', this.editem)
         this.setEditVal('')
         this.submiting = false
         if (!res.data.status) {
@@ -124,18 +114,13 @@
 
       // 更新情报
       updateAction: async function () {
-        let res = await axios().put(`news/${this.editem.id}`, {
-          con: this.newcon,
-          picture: this.picture
-        })
+        let res = await axios().put(`news/${this.editem.id}`, this.editem)
         this.submiting = false
         if (!res.data.status) {
           this.$alert('danger', '更新失败，没有权限')
           return
         }
         this.$alert('success', '更新成功')
-        this.editem.con = this.newcon
-        this.editem.picture = this.picture
       }
     },
     async created () {
@@ -158,9 +143,6 @@
     width: 100%;
     max-width: 700px;
     margin: auto;
-    // border-bottom: #EEE 1px solid;
-    // box-shadow: 1px 1px 1px rgba(238, 238, 238, 0.54);
-    // border-left: #FAFAFA 1px solid;
 
     .meditor {
       min-height: 100px;
