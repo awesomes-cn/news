@@ -26,11 +26,8 @@
             icon(name="bell"  width="22px")
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
-          a.pub-btn(href="javascript:void(0)" @click="ishowPub++")
+          nuxt-link(to="/pub" class="pub-btn")
             icon(name="plus"  width="20px") 发布情报
-    
-    // 发布情报
-    pub(:isshow="ishowPub")
     // 登录框
     login   
 
@@ -39,21 +36,16 @@
 <script>
   import Cookie from 'js-cookie'
   import Login from './login'
-  import Loading from '~components/loading'
-  import Pub from '~components/pub'
   export default {
     data () {
       return {
         isHideMenu: true,
         showmemeus: false,
-        searchKey: '',
-        ishowPub: 1
+        searchKey: ''
       }
     },
     components: {
-      Login,
-      Pub,
-      Loading
+      Login
     },
     watch: {
       '$route': function () {

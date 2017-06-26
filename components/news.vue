@@ -26,7 +26,7 @@
             a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
 
-            a.admin-oper(href="javascript:void(0)"  title="编辑" @click="showEdit(item)")
+            nuxt-link(:to="'/pub?id=' + item.id" class="admin-oper" title="编辑")
               icon(name="pen"  width="14px")
           
         div.com-wrap(v-if="item.isShowCom")
@@ -85,11 +85,6 @@
           this.newss.splice(index, 1)
           this.$alert('success', '删除情报成功')
         })
-      },
-      // 编辑
-      showEdit: function (item) {
-        this.ishowPub++
-        this.editItem = item
       }
     }
   }

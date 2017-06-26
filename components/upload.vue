@@ -2,7 +2,7 @@
   div.upload-box(:class="this.uploading ? 'uploading' : ''")
     input(type="file"  @change="uploadChange")
     canvas
-    img.preview(:src="cdn(value, 'news')" v-show="value")
+    // img.preview(:src="cdn(value, 'news')" v-show="value" )
     
 </template>
 
@@ -141,7 +141,6 @@
 
     .preview {
       width: 100%;
-      height: 100%;
       display: block;
     }
   }

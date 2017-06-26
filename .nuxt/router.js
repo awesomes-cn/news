@@ -36,7 +36,9 @@ const _26581e33 = () => import('/home/hxh/share/news/pages/test.vue' /* webpackC
 
 const _55855597 = () => import('/home/hxh/share/news/pages/develop/icons.vue' /* webpackChunkName: "pages/develop-icons" */)
 
-const _f540e0c2 = () => import('/home/hxh/share/news/pages/news/_id.vue' /* webpackChunkName: "pages/news-id" */)
+const _4c03a2e2 = () => import('/home/hxh/share/news/pages/news/_id/index.vue' /* webpackChunkName: "pages/news-id" */)
+
+const _6193c0f4 = () => import('/home/hxh/share/news/pages/news/_id/screenshot.vue' /* webpackChunkName: "pages/news-id-screenshot" */)
 
 
 
@@ -151,8 +153,13 @@ export default new Router({
 		},
 		{
 			path: "/news/:id?",
-			component: _f540e0c2,
+			component: _4c03a2e2,
 			name: "news-id"
+		},
+		{
+			path: "/news/:id?/screenshot",
+			component: _6193c0f4,
+			name: "news-id-screenshot"
 		}
   ]
 })
