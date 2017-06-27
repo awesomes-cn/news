@@ -21,9 +21,11 @@
           
           span  {{timeago(item.created_at)}}
 
+          nuxt-link(:to="'/news/' + item.id + '/share'" class="admin-oper" title="分享")
+            icon(name="share"  width="16px")
+
           template(v-if="session && session.id === item.mem.id")
-            nuxt-link(:to="'/news/' + item.id + '/share'" class="admin-oper" title="分享")
-              icon(name="share"  width="16px")
+           
 
             a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
