@@ -8,7 +8,7 @@
         
       div.middle    
         article(v-html="marked(item.con)")
-        img.img-con(:src="cdn(item.picture, 'news')" v-if="item.picture")
+        img.img-con(:src="cdn(item.picture, 'news')" v-if="item.picture" @click="zoomBig(cdn(item.picture, 'news'))")
         div.infos
           nuxt-link(:to="/mem/ + item.mem.id" class="tx-wrap")
             img.tx(:src="cdn(item.mem.avatar, 'mem')")
@@ -42,11 +42,13 @@
           img.tx(:src="cdn(item.mem.avatar, 'mem')")
         a.comm-bage(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论" v-show="item.comment > 0") {{item.comment}} 
     pub(:isshow="ishowPub" action="edit" v-bind:editem="editItem")
+    lightbox(:show="isShowLightBox" v-bind:src="lightboxSrc" v-bind:hide="zoomSmall")
 </template>
 
 
 <script>
   import Comment from '~components/comment.vue'
+  import Lightbox from '~components/lightbox.vue'
   import axios from '~plugins/axios'
   import Pub from '~components/pub'
   export default {
@@ -55,12 +57,15 @@
       return {
         ishowPub: 1,
         editItem: {},
-        favorIDs: []
+        favorIDs: [],
+        isShowLightBox: false,
+        lightboxSrc: ''
       }
     },
     components: {
       Comment,
-      Pub
+      Pub,
+      Lightbox
     },
     computed: {
       session () {
@@ -91,6 +96,14 @@
           this.newss.splice(index, 1)
           this.$alert('success', '删除情报成功')
         })
+      },
+      // 放大图片
+      zoomBig: async function (picture) {
+        this.isShowLightBox = true
+        this.lightboxSrc = picture
+      },
+      zoomSmall: function () {
+        this.isShowLightBox = false
       }
     }
   }
@@ -136,6 +149,7 @@
         .img-con {
           max-width: 80%;
           margin-bottom: 20px;
+          cursor: zoom-in;
         }
       }
 
