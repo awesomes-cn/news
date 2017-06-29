@@ -49,7 +49,10 @@
           time: 0,
           val: ''
         },
-        editem: {}
+        editem: {
+          con: '',
+          picture: ''
+        }
       }
     },
     components: {
@@ -128,9 +131,11 @@
       Vue.component('editor', editor)
       this.editorLoading = false
 
-      let res = await axios().get(`news/${this.$route.query.id}`)
-      this.editem = res.data
-      this.setEditVal(res.data.con)
+      if (this.$route.query.id > 0) {
+        let res = await axios().get(`news/${this.$route.query.id}`)
+        this.editem = res.data
+        this.setEditVal(res.data.con)
+      }
     }
   }
 </script>
