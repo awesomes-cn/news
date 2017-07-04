@@ -1,4 +1,12 @@
 const Config = require('./config')
+let PWAIcons = [16, 120, 144, 152, 192, 384, 512].map(size => {
+  return {
+    src: `${Config.CDN}icon_${size}.png`,
+    sizes: `${size}x${size}`,
+    type: 'image/png'
+  }
+})
+
 module.exports = {
   /*
   ** Headers of the page
@@ -35,8 +43,7 @@ module.exports = {
   modules: [
     // Simple usage
     '@nuxtjs/workbox',
-    '@nuxtjs/manifest',
-    ['@nuxtjs/icon']
+    '@nuxtjs/manifest'
   ],
   manifest: {
     name: '前端情报局',
@@ -45,7 +52,8 @@ module.exports = {
     start_url: 'https://news.awesomes.cn/',
     theme_color: '#da552f',
     background_color: '#FFF',
-    lang: 'zh-CN'
+    lang: 'zh-CN',
+    icons: PWAIcons
   },
   /*
   ** Customize the progress-bar color
