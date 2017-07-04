@@ -5,6 +5,8 @@
   "author": "hxh <1246996371@qq.com>",
   "private": true,
   "dependencies": {
+    "@nuxtjs/icon": "^0.1.0",
+    "@nuxtjs/manifest": "^1.6.0",
     "@nuxtjs/workbox": "^0.4.0",
     "ali-oss": "^4.8.0",
     "animate.css": "^3.5.2",

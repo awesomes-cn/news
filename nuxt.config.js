@@ -34,8 +34,19 @@ module.exports = {
   ],
   modules: [
     // Simple usage
-    '@nuxtjs/workbox'
+    '@nuxtjs/workbox',
+    '@nuxtjs/manifest',
+    ['@nuxtjs/icon']
   ],
+  manifest: {
+    name: '前端情报局',
+    short_name: '前端情报',
+    display: 'standalone',
+    start_url: '/',
+    theme_color: '#da552f',
+    background_color: '#FFF',
+    lang: 'zh-CN'
+  },
   /*
   ** Customize the progress-bar color
   */
