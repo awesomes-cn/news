@@ -7,6 +7,7 @@ module.exports = {
     max: 1000,
     maxAge: 900000
   },
+  offline: true,
   router: {
     // 在每页渲染前运行 middleware/user-agent.js 中间件的逻辑
     middleware: ['auth', 'i18n', 'notification']
@@ -56,5 +57,5 @@ module.exports = {
       }
     }
   },
-  plugins: ['~plugins/vue-icon', '~plugins/icon', '~plugins/common', { src: '~plugins/ba.js', ssr: false }, { src: '~plugins/pagination.js', ssr: false }, { src: '~plugins/upload', ssr: false }, { src: '~plugins/i18n.js', injectAs: 'i18n' }]
+  plugins: ['~plugins/vue-icon', '~plugins/icon', '~plugins/common', { src: '~plugins/ba.js', ssr: false }, { src: '~plugins/pagination.js', ssr: false }, { src: '~plugins/upload', ssr: false }, { src: '~plugins/i18n.js', injectAs: 'i18n' }, {src: '~plugins/offline.js', ssr: false}]
 }
