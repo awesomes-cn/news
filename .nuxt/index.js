@@ -111,10 +111,5 @@ let i18n = require('~plugins/i18n.js')
 i18n = i18n.default || i18n
 app['i18n'] = i18n
 
-if (process.browser) {
-  require('~plugins/offline.js')
-  
-}
-
 
 export { app, router, store, NuxtError }
