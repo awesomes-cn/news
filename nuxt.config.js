@@ -42,7 +42,7 @@ module.exports = {
     name: '前端情报局',
     short_name: '前端情报',
     display: 'standalone',
-    start_url: '/',
+    start_url: 'https://news.awesomes.cn/',
     theme_color: '#da552f',
     background_color: '#FFF',
     lang: 'zh-CN'
