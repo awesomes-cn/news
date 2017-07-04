@@ -68,13 +68,15 @@ const scrollBehavior = (to, from, savedPosition) => {
 }
 
 
-export default new Router({
-  mode: 'history',
-  base: '/',
-  linkActiveClass: 'nuxt-link-active',
-  scrollBehavior,
-  routes: [
-		{
+export function createRouter () {
+  return new Router({
+    mode: 'history',
+    base: '/',
+    linkActiveClass: 'nuxt-link-active',
+    linkExactActiveClass: 'nuxt-link-exact-active',
+    scrollBehavior,
+    routes: [
+  		{
 			path: "/",
 			component: _84fd38fe,
 			name: "index"
@@ -168,5 +170,6 @@ export default new Router({
 			component: _1dd97b6f,
 			name: "news-id-share"
 		}
-  ]
-})
+    ]
+  })
+}

@@ -8,6 +8,15 @@
 <script>
 import NuxtLoading from './components/nuxt-loading.vue'
 
+import 'bootstrap/dist/css/bootstrap.css'
+
+import 'prismjs/themes/prism.css'
+
+import 'animate.css'
+
+import '~assets/css/main.css'
+
+
 let layouts = {
 
   "_blank": () => import('/home/hxh/share/news/layouts/blank.vue'  /* webpackChunkName: "layouts/blank" */),
@@ -17,7 +26,7 @@ let layouts = {
 }
 
 export default {
-  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}]},
+  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[]},
   data: () => ({
     layout: null,
     layoutName: ''
@@ -60,13 +69,4 @@ export default {
   }
 }
 </script>
-
-
-<style src="bootstrap/dist/css/bootstrap.css" lang="css"></style>
-
-<style src="prismjs/themes/prism.css" lang="css"></style>
-
-<style src="animate.css" lang="css"></style>
-
-<style src="~assets/css/main.css" lang="css"></style>
 
