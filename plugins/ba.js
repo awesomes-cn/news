@@ -1,5 +1,4 @@
 /* eslint-disable */
-import router from '~router'
 /*
 ** Only run on client-side and only in production mode
 */
@@ -11,10 +10,4 @@ if (process.env.NODE_ENV === 'production') {
     var s = document.getElementsByTagName("script")[0]; 
     s.parentNode.insertBefore(hm, s);
   })();
-
-  router.afterEach((to, from) => {
-    /*
-    ** We tell Google Analytic to add a page view
-    */
-  })
 }
