@@ -26,7 +26,7 @@ let layouts = {
 }
 
 export default {
-  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"https://ofm2qnhj5.qnssl.com/.nuxt/dist/manifest.0d090c81.json"}],"style":[],"script":[]},
+  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"/_nuxt/manifest.0d090c81.json"}],"style":[],"script":[]},
   data: () => ({
     layout: null,
     layoutName: ''

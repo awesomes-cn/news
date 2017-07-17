@@ -32,7 +32,6 @@
   import Up from '~components/up.vue'
   export default {
     async asyncData ({ req, params, query }) {
-      console.log('===', params.id)
       let res = await axios().get(`news/${params.id}`)
       return {
         news: res.data

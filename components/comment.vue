@@ -2,7 +2,7 @@
   div.comment-wraper
     div.editor-go
       button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
-      editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说")
+      editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说" v-if="isShowEditor")
 
     div.citem(v-for="(item, index) in coms")
       nuxt-link(:to="'/mem/' + item.mem.id")
@@ -51,7 +51,8 @@
             ready: '更新评论',
             ing: '更新中...'
           }
-        }
+        },
+        isShowEditor: false
       }
     },
     computed: {
@@ -181,6 +182,7 @@
     async created () {
       const editor = await import('~components/editor.vue')
       Vue.component('editor', editor)
+      this.isShowEditor = true
     }
   }
 </script>
