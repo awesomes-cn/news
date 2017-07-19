@@ -79,8 +79,8 @@ const fileManifest = [
     "revision": "7290a995cfdb42c546e8fa645555e48a"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/4.nuxt.bundle.36ce4ad69988951beabb.js",
-    "revision": "153c8cce2d67fa692afa624fc4330c5a"
+    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/4.nuxt.bundle.ba4bacec0743dd273f84.js",
+    "revision": "89e9c8df90b10975fbc3c23a692728a0"
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/5.nuxt.bundle.ec739deb7dad92d9a0bc.js",
@@ -104,7 +104,7 @@ const fileManifest = [
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/client-manifest.json",
-    "revision": "e153d17e0378bc6c39b3dbeee4b37ebf"
+    "revision": "267b0a90f4801451b50bff50fae3df82"
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/index.html",
@@ -115,8 +115,8 @@ const fileManifest = [
     "revision": "f3966fe6dfba9ca89e79a19738c425fc"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/manifest.cc134e97660b721df793.js",
-    "revision": "9360eecf3e59c070447edf858ce6a50c"
+    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/manifest.91790e67afd4bcc4b93f.js",
+    "revision": "01299dbe32b4ef988211b4464a811250"
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/nuxt.bundle.65fa9d0f40721550bf3a.js",
@@ -124,7 +124,7 @@ const fileManifest = [
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/server-bundle.json",
-    "revision": "2724a8707dae1476cf0a5a16813b6cc9"
+    "revision": "d205a70051da350f22a20d02bd4e4c84"
   },
   {
     "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/vendor.bundle.803a3c0cc787e5885135.js",
