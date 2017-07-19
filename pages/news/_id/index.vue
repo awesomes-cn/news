@@ -12,7 +12,7 @@
           icon(name="quote" width="25px;" class="quote")
           span.fumo {{timeago(news.created_at)}}
         div.inn
-          article(v-html="marked(news.con)")
+          article.news-con(v-html="marked(news.con)")
         div.quote-right
           icon(name="quote" width="25px;" class="quote" rotate="180")  
         div.extra
@@ -97,7 +97,7 @@
       .inn {
         padding: 2px;
       }
-      article {
+      article.news-con {
         font-size: 1.2rem;
         line-height: 30px;
         padding: 40px;
