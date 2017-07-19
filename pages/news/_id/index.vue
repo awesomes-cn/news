@@ -60,7 +60,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .main {
     display: flex;
     width: 100%;
@@ -101,6 +101,29 @@
         font-size: 1.2rem;
         line-height: 30px;
         padding: 40px;
+
+        a {
+          color: #025aa5;
+          border-bottom: #025aa5 1px dashed;
+        }
+        table {
+          border: 1px solid #eceeef;
+          width: 100%;
+          max-width: 100%;
+          margin-bottom: 1rem;
+          border-collapse: collapse;
+          th, td {
+            vertical-align: bottom;
+            border-bottom-width: 2px;
+            border: 1px solid #eceeef;
+            padding: .75rem;
+          }
+          th {
+            border-bottom: 2px solid #eceeef;
+          }
+          tbody tr:nth-of-type(odd) {
+          }
+        }
       }
 
       .extra {
