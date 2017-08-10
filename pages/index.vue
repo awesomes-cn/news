@@ -1,6 +1,15 @@
 <template lang="pug">
   div.home-box
     div.home-container
+      div.alert.alert-info(v-if="isSearch")
+        span 共搜索到 
+        strong {{pagetotal}} 
+        span 条关于 
+        strong {{$route.query.q}} 
+        span 的情报
+        span.powerby
+          span power by 
+          a(href="https://www.algolia.com/" target="_blank") algolia 
       div.slogn 每天刷一刷，跟上前端快步伐
       div.list-inner
         news(:newss="newss" flag="news-list")
@@ -16,11 +25,12 @@
   import News from '~components/news.vue'
   let pagesize = 15
 
-  let fetchData = async (page, req) => {
+  let fetchData = async (page, req, query) => {
     let res = await axios(req).get('news', {
       params: {
         limit: pagesize,
-        skip: pagesize * (page - 1)
+        skip: pagesize * (page - 1),
+        search: (query || this.$route.query).q
       }
     })
 
@@ -37,7 +47,7 @@
   export default {
     name: 'home',
     async asyncData ({ req, params, query }) {
-      let data = await fetchData(1, req)
+      let data = await fetchData(1, req, query)
       return {
         newss: data.newss,
         pagetotal: data.pagetotal
@@ -56,6 +66,9 @@
       },
       hasmore () {
         return this.pagetotal >= pagesize * this.currentPage
+      },
+      isSearch () {
+        return (this.$route.query.q && this.$route.query.q.trim() !== '')
       }
     },
     components: {
@@ -100,6 +113,11 @@
     max-width: 800px;
     margin: 0 auto;
     padding-bottom: 40px;
+  }
+
+  .powerby {
+    float: right;
+    color: #999
   }
 
   .slogn {

@@ -7,7 +7,9 @@
             img.logo(src="../assets/img/logo-50.png")
             span.logo-txt.hide-small 前端情报局
         div.middle
+          
         div.right
+          
           a.hide-small(href="" v-show="session" @mouseover="showmemeus = true" @mouseleave="showmemeus = false")
             icon(name="more" width="20px")
 
@@ -27,7 +29,12 @@
             span.num(v-show="$store.state.unreadNotifiy > 0") {{$store.state.unreadNotifiy}}
 
           nuxt-link(to="/pub" class="pub-btn")
-            icon(name="plus"  width="20px") 发布情报
+            icon(name="plus"  width="16px")
+
+          div.search-form
+            input(type="text" v-model="searchKey" @keyup.enter="searchGo")
+            span.go(@click="searchGo")
+              icon(name="search" width="15px")  
     // 登录框
     login   
 
@@ -41,7 +48,7 @@
       return {
         isHideMenu: true,
         showmemeus: false,
-        searchKey: ''
+        searchKey: this.$route.query.q
       }
     },
     components: {
@@ -66,10 +73,7 @@
       },
       // 搜索
       searchGo: function () {
-        if (this.searchKey.trim() === '') {
-          return
-        }
-        this.$router.push({path: '/search', query: {q: this.searchKey}})
+        this.$router.push({path: '/', query: {q: this.searchKey}})
       }
     }
   }
@@ -119,7 +123,6 @@
   .left, .middle .inner, .right {
     display: flex;
   }
-  
 
   .middle {
   }
@@ -223,6 +226,36 @@
     right: 0;
     transform-origin-x: 0;
     transform: scale(0.8);
+  }
+
+  .search-form {
+    color: #aeaeae;
+    position: relative;
+    .go {
+      display: inline-block;
+      position: absolute;
+      right: 5px;
+      top: 8px;
+      cursor: pointer;
+    }
+    input {
+      outline: none;
+      border: #EEE 1px solid;
+      display: block;
+      background-color: #FAFAFA;
+      padding: 6px 5px;
+      padding-right: 30px;
+      border-radius: 3px;
+      &:focus {
+        background-color: #FFF;
+        border: #007fff 1px solid;
+
+        & + .go {
+          color: #007fff
+        }
+      }
+    }
+    
   }
 
 </style>

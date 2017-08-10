@@ -22,14 +22,14 @@ if (process.browser) {
 }
 
 // Import SSR plugins
-let plugin1 = require('~plugins/vue-icon')
+let plugin0 = require('~plugins/vue-icon')
+plugin0 = plugin0.default || plugin0
+let plugin1 = require('~plugins/icon')
 plugin1 = plugin1.default || plugin1
-let plugin2 = require('~plugins/icon')
+let plugin2 = require('~plugins/common')
 plugin2 = plugin2.default || plugin2
-let plugin3 = require('~plugins/common')
-plugin3 = plugin3.default || plugin3
-let plugin7 = require('~plugins/i18n.js')
-plugin7 = plugin7.default || plugin7
+let plugin6 = require('~plugins/i18n.js')
+plugin6 = plugin6.default || plugin6
 
 
 // Component: <nuxt-child>
@@ -125,12 +125,8 @@ async function createApp (ssrContext) {
 
   // Inject external plugins
   
-  if (process.browser) {
-    let plugin0 = require('/home/hxh/share/news/.nuxt/workbox.plugin.daff47da.js')
-    plugin0 = plugin0.default || plugin0
-    if (typeof plugin0 === 'function') {
-      await plugin0(ctx)
-    }
+  if (typeof plugin0 === 'function') {
+    await plugin0(ctx)
   }
   
   if (typeof plugin1 === 'function') {
@@ -141,12 +137,16 @@ async function createApp (ssrContext) {
     await plugin2(ctx)
   }
   
-  if (typeof plugin3 === 'function') {
-    await plugin3(ctx)
+  if (process.browser) {
+    let plugin3 = require('~plugins/ba.js')
+    plugin3 = plugin3.default || plugin3
+    if (typeof plugin3 === 'function') {
+      await plugin3(ctx)
+    }
   }
   
   if (process.browser) {
-    let plugin4 = require('~plugins/ba.js')
+    let plugin4 = require('~plugins/pagination.js')
     plugin4 = plugin4.default || plugin4
     if (typeof plugin4 === 'function') {
       await plugin4(ctx)
@@ -154,23 +154,15 @@ async function createApp (ssrContext) {
   }
   
   if (process.browser) {
-    let plugin5 = require('~plugins/pagination.js')
+    let plugin5 = require('~plugins/upload')
     plugin5 = plugin5.default || plugin5
     if (typeof plugin5 === 'function') {
       await plugin5(ctx)
     }
   }
   
-  if (process.browser) {
-    let plugin6 = require('~plugins/upload')
-    plugin6 = plugin6.default || plugin6
-    if (typeof plugin6 === 'function') {
-      await plugin6(ctx)
-    }
-  }
-  
-  if (typeof plugin7 === 'function') {
-    await plugin7(ctx)
+  if (typeof plugin6 === 'function') {
+    await plugin6(ctx)
   }
   
 
