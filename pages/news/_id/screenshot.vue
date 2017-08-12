@@ -2,12 +2,14 @@
   div.screen-box
     div.slogn
       img.logo(src="../../../assets/img/logo-50.png")
-      h4(style="margin-top: 10px;") 前端情报局
-      
+      h4(style="margin-top: 10px;") Front End Intelligence
     div.news-main
       div.item-box
         article(v-html="marked(news.con)")
         img.img-con(:src="cdn(news.picture, 'news')" v-if="news.picture")
+      div.extra-info
+        div 每天刷一刷，跟上前端快步伐  
+        div https://news.awesomes.cn
 </template>
 
 <script>
@@ -32,24 +34,31 @@
     .screen-box {
       width: 500px;
       position: relative;
+      background-color: #f4f5f5;
+      padding: 20px;
+      font-family: 'PingFang SC';
       .slogn {
         text-align: center;
-        padding-top: 30px;
+        padding: 30px 0;
         background-image: linear-gradient( 135deg, #ec971f 0%, #d83b3b 100%);
         color: #ffffff;
-        height: 250px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 1px -1px 20px #d3d3d3;
       }
 
       .logo {
-        background-color: #FFF;
+        background-color: rgba(255, 255, 255, 0.3);
         border-radius: 100%;
-        padding: 5px;
+        padding: 2px;
       }
       .item-box {
         background-color: #FFF;
-        margin-top: 10px;
         position: relative;
         padding: 40px;
+        // box-shadow: 1px -1px 20px #d3d3d3;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
 
         img {
           max-width: 100%
@@ -60,8 +69,6 @@
         }
       }
       .news-main {
-        padding: 30px;
-        margin-top: -150px;
       }
       article {
         font-size: 1.2rem;
@@ -107,6 +114,12 @@
         color: #a9a8a8;
         margin-left: 10px;
       }
+    }
+
+    .extra-info {
+      text-align: center;
+      padding: 20px;
+      color: #b6b2b2
     }
   }
 </style>

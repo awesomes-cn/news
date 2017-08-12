@@ -30,7 +30,7 @@
       params: {
         limit: pagesize,
         skip: pagesize * (page - 1),
-        search: (query || this.$route.query).q
+        search: query.q
       }
     })
 
@@ -83,7 +83,7 @@
       },
 
       fetchNews: async function () {
-        let data = await fetchData(this.currentPage)
+        let data = await fetchData(this.currentPage, null, this.$route.query)
         this.newss = this.newss.concat(data.newss)
         this.pagetotal = data.pagetotal
       },
