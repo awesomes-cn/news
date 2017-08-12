@@ -37,6 +37,7 @@
       background-color: #f4f5f5;
       padding: 20px;
       font-family: 'PingFang SC';
+      color: #000;
       .slogn {
         text-align: center;
         padding: 30px 0;

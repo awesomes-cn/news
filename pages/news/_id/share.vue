@@ -29,7 +29,7 @@
       },
       shareWeibo: function () {
         let shareUrl = `https://news.awesomes.cn/news/${this.$route.params.id}`
-        let url = `http://service.weibo.com/share/share.php?url=${shareUrl}&type=button&language=zh_cn&appkey=3977462330&title=「前端情报局」${shareUrl}&pic=${this.cdn(this.screenshot, 'news/screenshot')}&searchPic=true&style=simple`
+        let url = `http://service.weibo.com/share/share.php?url=${shareUrl}&type=button&language=zh_cn&appkey=3977462330&title=「前端情报局」&pic=${this.cdn(this.screenshot, 'news/screenshot')}&searchPic=true&style=simple`
         window.open(url, 'newwindow', 'width=500,height=500')
       },
       download: function () {
