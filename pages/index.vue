@@ -15,7 +15,7 @@
         news(:newss="newss" flag="news-list")
         div.load-wraper
           button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
-            icon(name="loadmore" rotate="180") {{loading ? '加载中...' : '加载更多'}}
+            icon(name="loadmore" rotate="180" width="15px") {{loading ? '加载中...' : '加载更多'}}
           span.nomore(v-else) 没有更多了
 </template>
 
@@ -140,11 +140,13 @@
   .load-wraper {
     text-align: center;
     .load-more {
-      border: #DDD 1px dashed;
+      border: 1px solid rgba(228, 230, 229, 0.61);
       padding: 15px 30px;
-      background-color: #FFF;
+      background-color: #fbfbfb;
       outline: none;
-      color: #888888
+      color: #888;
+      box-shadow: 0px 0px 10px #f4f4f4;
+      border-radius: 1px;
     }
     .nomore {
       padding: 50px 0;

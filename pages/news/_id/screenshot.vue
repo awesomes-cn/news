@@ -2,7 +2,7 @@
   div.screen-box
     div.slogn
       img.logo(src="../../../assets/img/logo-50.png")
-      h4(style="margin-top: 10px;") Front End Intelligence
+      h4(style="margin-top: 10px;") Front End News
     div.news-main
       div.item-box
         article(v-html="marked(news.con)")

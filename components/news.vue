@@ -6,7 +6,7 @@
           icon(name="arrow-up"  width="18px" alone="true")
           div {{item.favor}}
         
-      div.middle    
+      div.middle
         article(v-html="marked(item.con)")
         img.img-con(:src="cdn(item.picture, 'news')" v-if="item.picture" @click="zoomBig(cdn(item.picture, 'news'))")
         div.infos

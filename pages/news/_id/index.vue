@@ -13,12 +13,15 @@
           span.fumo {{timeago(news.created_at)}}
         div.inn
           article.news-con(v-html="marked(news.con)")
+          img.img-con(:src="cdn(news.picture, 'news')" v-if="news.picture" @click="zoomBig(cdn(news.picture, 'news'))")
         div.quote-right
           icon(name="quote" width="25px;" class="quote" rotate="180")  
         div.extra
           
-        div.text-center
+        div.oper-box
           up(:item="news")
+          nuxt-link(:to="'/news/' + news.id + '/share'" class="share-btn" title="分享")
+            icon(name="share"  width="25px")  
       div.item-box
         comment(flag="news-detail" typ="NEWS" v-bind:idcd="news.id")  
     div.right
@@ -60,7 +63,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .main {
     display: flex;
     width: 100%;
@@ -96,6 +99,11 @@
       }
       .inn {
         padding: 2px;
+        .img-con {
+          max-width: 80%;
+          margin-bottom: 20px;
+          cursor: zoom-in;
+        }
       }
       article.news-con {
         font-size: 1.2rem;
@@ -161,6 +169,17 @@
       color: #DDD;
       position: fixed;
       margin-top: 50px;
+    }
+
+    .oper-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .share-btn {
+        color: #b0bec7;
+        margin-left: 20px;
+      }
     }
   }
 </style>

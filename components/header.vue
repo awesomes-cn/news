@@ -183,7 +183,7 @@
   
 
   .right > a {
-    padding: 0 15px;
+    padding: 0 12px;
   }
 
   .left a, .right a {
@@ -231,6 +231,7 @@
   .search-form {
     color: #aeaeae;
     position: relative;
+    margin-right: 12px;
     .go {
       display: inline-block;
       position: absolute;
@@ -246,6 +247,7 @@
       padding: 6px 5px;
       padding-right: 30px;
       border-radius: 3px;
+      width: 160px;
       &:focus {
         background-color: #FFF;
         border: #007fff 1px solid;
