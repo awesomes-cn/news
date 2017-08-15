@@ -10,7 +10,18 @@
         span.powerby
           span power by 
           a(href="https://www.algolia.com/" target="_blank") algolia 
-      div.slogn 每天刷一刷，跟上前端快步伐
+      div.slogn
+        span 每天刷一刷，跟上前端快步伐
+        div.m-app
+          div.inner
+            a(href="javascript:void(0)" title="手机端")
+              icon(name="phone")
+            div.pop-app
+              img(src="https://ofm2qnhj5.qnssl.com/weixin-applet.jpg")
+              div 
+                span 微信小程序「
+                strong 前端情报
+                span 」
       div.list-inner
         news(:newss="newss" flag="news-list")
         div.load-wraper
@@ -125,7 +136,45 @@
     padding: 20px;
     background-image: linear-gradient( 135deg, #ec971f 0%, #d83b3b 100%);
     color: #ffffff;
-    // border-bottom: #a02e2e 6px solid;
+    position: relative;
+    .m-app {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      height: 100%;
+
+      .inner {
+        position: relative;
+        display: inline-flex;
+        height: 100%;
+      }
+
+      a {
+        color: #FFF;
+        display: inline-flex;
+      }
+
+      .pop-app {
+        position: absolute;
+        padding: 10px;
+        box-shadow: 0px 0px 10px #DDD;
+        top: 59px;
+        background-color:#FFF;
+        right: 0;
+        display: none;
+        z-index: 10;
+        color: #333;
+        img {
+          width: 200px
+        }
+      }
+
+      &:hover {
+        .pop-app {
+          display: block
+        }
+      }
+    }
   }
 
   .list-inner {
