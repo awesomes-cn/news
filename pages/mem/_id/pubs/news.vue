@@ -6,8 +6,8 @@
 
 
 <script>
-  import axios from '~plugins/axios'
-  import News from '~components/news.vue'
+  import axios from '~/plugins/axios'
+  import News from '~/components/news.vue'
   let pagesize = 10
   export default {
     name: 'home',

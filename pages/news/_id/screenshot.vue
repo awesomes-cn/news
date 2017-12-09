@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import axios from '~plugins/axios'
+  import axios from '~/plugins/axios'
   export default {
     layout: 'blank',
     async asyncData ({ req, params, query }) {

@@ -27,9 +27,8 @@
 
 </template>
 <script>
-  import axios from '~plugins/axios'
+  import axios from '~/plugins/axios'
   import $ from 'jquery'
-  import Vue from 'vue'
   export default {
     props: ['flag', 'typ', 'idcd'],
     data () {
@@ -176,12 +175,13 @@
         this.list()
       }
     },
+    components: {
+      editor: () => import('~/components/editor.vue')
+    },
     mounted () {
       this.list()
     },
     async created () {
-      const editor = await import('~components/editor.vue')
-      Vue.component('editor', editor)
       this.isShowEditor = true
     }
   }

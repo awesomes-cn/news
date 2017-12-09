@@ -22,7 +22,7 @@
           up(:item="news")
           nuxt-link(:to="'/news/' + news.id + '/share'" class="share-btn" title="分享")
             icon(name="share"  width="25px")  
-      div.item-box
+      div.item-box(v-if="isShowCom")
         comment(flag="news-detail" typ="NEWS" v-bind:idcd="news.id")  
     div.right
       a(href="javascript:void(0)" class="navto" @click="goto('next')"  title="下一条")
@@ -30,14 +30,19 @@
 </template>
 
 <script>
-  import axios from '~plugins/axios'
-  import Comment from '~components/comment.vue'
-  import Up from '~components/up.vue'
+  import axios from '~/plugins/axios'
+  import Comment from '~/components/comment.vue'
+  import Up from '~/components/up.vue'
   export default {
     async asyncData ({ req, params, query }) {
       let res = await axios().get(`news/${params.id}`)
       return {
         news: res.data
+      }
+    },
+    data () {
+      return {
+        isShowCom: false
       }
     },
     components: {
@@ -59,6 +64,9 @@
         }
         this.$router.push(`/news/${distID}`)
       }
+    },
+    mounted () {
+      this.isShowCom = true
     }
   }
 </script>
@@ -72,7 +80,10 @@
     padding-bottom: 50px;
 
     .middle {
-      width: 650px;
+      max-width: 650px;
+      flex-grow: 1;
+      word-wrap: break-word;
+      overflow: auto;
 
       .item-box {
         background-color: #FFF;
@@ -109,6 +120,12 @@
         font-size: 1.2rem;
         line-height: 30px;
         padding: 40px;
+
+        @media (max-width: 576px) {
+          padding: 20px 10px;
+        }
+        
+
 
         a {
           color: #025aa5;
@@ -159,11 +176,19 @@
       flex-grow: 1;
       flex-shrink: 100;
       text-align: center;
+
+      @media (max-width: 576px) {
+        display: none;
+      }
     }
     .right {
       flex-grow: 1;
       flex-shrink: 100;
       text-align: center;
+
+      @media (max-width: 576px) {
+        display: none;
+      }
     }
     .navto {
       color: #DDD;

@@ -8,7 +8,7 @@
     h4.notip(v-else) 暂无消息
 </template>
 <script>
-  import axios from '~plugins/axios'
+  import axios from '~/plugins/axios'
   let pagesize = 15
   export default {
     data () {

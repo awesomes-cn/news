@@ -32,8 +32,8 @@
 
 
 <script>
-  import axios from '~plugins/axios'
-  import News from '~components/news.vue'
+  import axios from '~/plugins/axios'
+  import News from '~/components/news.vue'
   let pagesize = 15
 
   let fetchData = async (page, req, query) => {

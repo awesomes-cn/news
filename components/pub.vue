@@ -38,9 +38,9 @@
 </template>
 
 <script>
-  import axios from '~plugins/axios'
+  import axios from '~/plugins/axios'
   import Vue from 'vue'
-  import Loading from '~components/loading'
+  import Loading from '~/components/loading'
   export default {
     props: ['isshow', 'action', 'editem'],
     data () {
@@ -89,7 +89,7 @@
       },
       showPub: async function (initVal) {
         this.isShowPub = true
-        const editor = await import('~components/editor.vue')
+        const editor = await import('~/components/editor.vue')
         Vue.component('editor', editor)
         this.editorLoading = false
         let self = this

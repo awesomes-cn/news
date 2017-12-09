@@ -14,8 +14,8 @@
         p.text-center 截图渲染中...
 </template>
 <script>
-  import axios from '~plugins/axios'
-  import Loading from '~components/loading'
+  import axios from '~/plugins/axios'
+  import Loading from '~/components/loading'
   export default {
     data () {
       return {

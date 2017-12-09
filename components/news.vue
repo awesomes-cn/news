@@ -47,10 +47,10 @@
 
 
 <script>
-  import Comment from '~components/comment.vue'
-  import Lightbox from '~components/lightbox.vue'
-  import axios from '~plugins/axios'
-  import Pub from '~components/pub'
+  import Comment from '~/components/comment.vue'
+  import Lightbox from '~/components/lightbox.vue'
+  import axios from '~/plugins/axios'
+  import Pub from '~/components/pub'
   export default {
     props: ['newss', 'flag'],
     data () {

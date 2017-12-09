@@ -36,9 +36,9 @@
 </template>
 
 <script>
-  import axios from '~plugins/axios'
+  import axios from '~/plugins/axios'
   import Vue from 'vue'
-  import Loading from '~components/loading'
+  import Loading from '~/components/loading'
   export default {
     data () {
       return {
@@ -127,7 +127,7 @@
       }
     },
     async created () {
-      const editor = await import('~components/editor.vue')
+      const editor = await import('~/components/editor.vue')
       Vue.component('editor', editor)
       this.editorLoading = false
 

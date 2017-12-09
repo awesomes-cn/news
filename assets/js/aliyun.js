@@ -1,4 +1,4 @@
-import axios from '~plugins/axios'
+import axios from '~/plugins/axios'
 // var OSS = require('~assets/js/aliyun-oss-sdk.min').Wrapper
 var OSS = {}
 var bucket = 'awesomes'
