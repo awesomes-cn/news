@@ -1,41 +1,59 @@
-<template>
-  <div id="__nuxt">
-    <nuxt-loading ref="loading"></nuxt-loading>
-    <component v-if="layout" :is="nuxt.err ? 'nuxt' : layout"></component>
-  </div>
-</template>
-
-<script>
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import 'C:\\Users\\HXH\\Desktop\\news\\node_modules\\.4.0.0-beta.2@bootstrap\\dist\\css\\bootstrap.css'
+import '../node_modules/_bootstrap@4.0.0@bootstrap/dist/css/bootstrap.css'
 
-import 'C:\\Users\\HXH\\Desktop\\news\\node_modules\\.1.9.0@prismjs\\themes\\prism.css'
+import '../node_modules/_prismjs@1.12.2@prismjs/themes/prism.css'
 
-import 'C:\\Users\\HXH\\Desktop\\news\\node_modules\\.3.5.2@animate.css\\animate.css'
+import '../node_modules/_animate.css@3.6.1@animate.css/animate.css'
 
-import '..\\assets\\css\\main.css'
+import '../assets/css/main.css'
 
 
 let layouts = {
 
-  "_blank": () => import('..\\layouts\\blank.vue'  /* webpackChunkName: "layouts\\blank" */).then(m => m.default || m),
+  "_blank": () => import('../layouts/blank.vue'  /* webpackChunkName: "layouts/blank" */).then(m => m.default || m),
 
-  "_default": () => import('..\\layouts\\default.vue'  /* webpackChunkName: "layouts\\default" */).then(m => m.default || m)
+  "_default": () => import('../layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
 
 }
 
 let resolvedLayouts = {}
 
 export default {
-  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"/_nuxt/manifest.0d090c81.json"}],"style":[],"script":[]},
+  head: {"title":"前端情报局","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"hid":"description","name":"description","content":"前端最新新闻，最新框架发布，小知识点最新前端资讯和情报"},{"hid":"keywords","name":"keywords","content":"前端,情报,小知识"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"manifest","href":"https:\u002F\u002Fofm2qnhj5.qnssl.com\u002F.nuxt\u002Fdist\u002Fmanifest.0d090c81.json"}],"style":[],"script":[]},
+  render(h, props) {
+    const loadingEl = h('nuxt-loading', { ref: 'loading' })
+    const layoutEl = h(this.layout || 'nuxt')
+    const templateEl = h('div', {
+      domProps: {
+        id: '__layout'
+      },
+      key: this.layoutName
+    }, [ layoutEl ])
+
+    const transitionEl = h('transition', {
+      props: {
+        name: 'layout',
+        mode: 'out-in'
+      }
+    }, [ templateEl ])
+
+    return h('div',{
+      domProps: {
+        id: '__nuxt'
+      }
+    }, [
+      loadingEl,
+      transitionEl
+    ])
+  },
   data: () => ({
     layout: null,
     layoutName: ''
   }),
   beforeCreate () {
-    Vue.util.defineReactive(this, 'nuxt', this.$options._nuxt)
+    Vue.util.defineReactive(this, 'nuxt', this.$options.nuxt)
   },
   created () {
     // Add this.$nuxt in child instances
@@ -94,5 +112,4 @@ export default {
     NuxtLoading
   }
 }
-</script>
 

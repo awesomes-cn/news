@@ -1,4 +1,4 @@
-importScripts('workbox-sw.prod.v1.0.1.js');
+importScripts('workbox-sw.prod.v1.3.0.js');
 
 /**
  * DO NOT EDIT THE FILE MANIFEST ENTRY
@@ -19,116 +19,120 @@ importScripts('workbox-sw.prod.v1.0.1.js');
  */
 const fileManifest = [
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/0.nuxt.bundle.5573438dff5cb5f100ad.js",
-    "revision": "b210d4494889e9fba463331847d7e344"
+    "url": "22.b0c46f8ed14bf457ba66.js",
+    "revision": "51c1a44bc4abbd2ed62f6c91bf812988"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/1.nuxt.bundle.afacd55f19cd3000e81f.js",
-    "revision": "af782dfa0ab6c34f8b838ffd88267aec"
+    "url": "app.9f2f330b0e24e03ccdda.js",
+    "revision": "7aa279ce850b18c98eab31dd1a2e8769"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/10.nuxt.bundle.662f94b081b9c7f901a3.js",
-    "revision": "940eb2b2135aa306936816daa0e2440a"
+    "url": "index.spa.html",
+    "revision": "6a5d6ec1a53bc3d580624ef31423e138"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/11.nuxt.bundle.397ac38f3855c519b048.js",
-    "revision": "7ef4199df948c523caddf5e9c42af7d6"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/12.nuxt.bundle.72aa9b7db8a2c452caed.js",
-    "revision": "6591f324ee657b99a3a195e514488d08"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/13.nuxt.bundle.663295235c1b6c8555bb.js",
-    "revision": "a082c97bc2c1848020f4cac3040ba526"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/14.nuxt.bundle.c3749ced3a4f150d7349.js",
-    "revision": "dee149195bf6a2bc6bf8c972869046a4"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/15.nuxt.bundle.8e425ea889d247eea96c.js",
-    "revision": "0da03247d44c64a04462ebdcd0b3fc52"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/16.nuxt.bundle.d6489eb56eb0b037854f.js",
-    "revision": "188dc92dd44e615c344e3f8a32bfe056"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/17.nuxt.bundle.191f88f9b618cb5c0c67.js",
-    "revision": "d4064e215d10914963d7af1fd091a8cf"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/18.nuxt.bundle.04de159afe09de0e07c7.js",
-    "revision": "e0d0ff30481d9ceee74663f6c13f431b"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/19.nuxt.bundle.71987b92364ad09d1a74.js",
-    "revision": "e25bbd1d8049347860cae602a808e2d0"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/2.nuxt.bundle.14e29d8cbc79cd0f9fdc.js",
-    "revision": "073e927834bb7a6b664c0fc8b9c07c2d"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/22.nuxt.bundle.ead6540ee48dc4276d34.js",
-    "revision": "a34585be3bd39d74b1597e61349e7f3e"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/3.nuxt.bundle.a0e45f1498f8a48ece83.js",
-    "revision": "2f3e50d69adcdca48b001280d9419d70"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/4.nuxt.bundle.da854ce16005232c2c7a.js",
-    "revision": "e08d545ae516a8bf9e33cb995be619bc"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/5.nuxt.bundle.db6001d9918ccd1c30ee.js",
-    "revision": "8ec84f8384ed761b591edfa5bca26381"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/6.nuxt.bundle.5cf420f7773d7c386027.js",
-    "revision": "cd1cb47b96bed8284eceb3bd75bb720f"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/7.nuxt.bundle.207d9f68865729cf5ae9.js",
-    "revision": "60d2c80d5a708490d78b486c772f3dc2"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/8.nuxt.bundle.f6bf748b4ee61a608a18.js",
-    "revision": "bdc7316a6ede51c14b27706982142956"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/9.nuxt.bundle.008fd52cfa157a46deb0.js",
-    "revision": "f146c81db3531a1292f421cf0b238e0b"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/client-manifest.json",
-    "revision": "fbe1bd4851279451338501bb420dbefb"
-  },
-  {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/index.html",
+    "url": "index.ssr.html",
     "revision": "744fb1c184ce0e85af057191b683d6a2"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/manifest.0d090c81.json",
+    "url": "layouts/blank.d880f9de2f360286e7db.js",
+    "revision": "34a8f32e9ea47faae5f3fffb027dcb57"
+  },
+  {
+    "url": "layouts/default.d9b45c49c4ef93358819.js",
+    "revision": "0c6f56e6ee02d648eb20fb0b2581d965"
+  },
+  {
+    "url": "manifest.0d090c81.json",
     "revision": "f3966fe6dfba9ca89e79a19738c425fc"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/manifest.f4fa6dfb1a4f2ab3a195.js",
-    "revision": "39b09e308585465c2939e4c46a1f3c5f"
+    "url": "manifest.69d4487457d71c35e43f.js",
+    "revision": "cb693094f6cdd591ecf5d963df81e89a"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/nuxt.bundle.15ea6e3c7bd5d81611bb.js",
-    "revision": "fa91223589dd2fee6e11f8cf48ffc8e9"
+    "url": "pages/develop/icons.bf17974fca30c4dc78cd.js",
+    "revision": "964ed52b477d3c236cb7575a0e2aeec5"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/server-bundle.json",
-    "revision": "c9adb7a4274c3b38a25f050963d0dc5d"
+    "url": "pages/index.87a2da1456d3436b32cc.js",
+    "revision": "0e10ba0ed4926d79f6e74ecb2a47ccd9"
   },
   {
-    "url": "https://ofm2qnhj5.qnssl.com/.nuxt/dist/vendor.bundle.25fee610ed6e69d27023.js",
-    "revision": "a82ea0e112c63c3e2d4ce955894245c3"
+    "url": "pages/mem.c196b38954f7ce84e0ed.js",
+    "revision": "6cadf7c46905167e1fa04ff555582b00"
+  },
+  {
+    "url": "pages/mem/_id/index.ccfc256e7db7838d9d46.js",
+    "revision": "4a044bfc6205e4f9b790a52346cd0df4"
+  },
+  {
+    "url": "pages/mem/_id/pubs/news.a0be5af3d75a3a26b0e6.js",
+    "revision": "65ec632384308f1f1f65b5b340e61b3d"
+  },
+  {
+    "url": "pages/news/_id/index.e126886a7ceb4c2002c6.js",
+    "revision": "a9bf1ab0f0dbe75ac148022b3855220c"
+  },
+  {
+    "url": "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
+    "revision": "b2a4edc4114d685156df7b63f7b58a1a"
+  },
+  {
+    "url": "pages/news/_id/share.95bdedc19a9527e42d6b.js",
+    "revision": "77556ea830be12a071a5d2b763669e2b"
+  },
+  {
+    "url": "pages/notifications.97a4ceba13c9cb6f4f1e.js",
+    "revision": "c5d8ec871a0b1f22a7fafd1895791b7a"
+  },
+  {
+    "url": "pages/pub.6481d5b96008abf05581.js",
+    "revision": "107184268e895400fa38410dc2a402ec"
+  },
+  {
+    "url": "pages/site.3002a68d93782d1666ba.js",
+    "revision": "77265dbb699ebfb335a607b50fec6eb5"
+  },
+  {
+    "url": "pages/site/about.f7b33db3ce0da38e36fc.js",
+    "revision": "7ff2d3f3b93d37523e96a5d068b06b89"
+  },
+  {
+    "url": "pages/site/capa.cb9690892c58c3688f74.js",
+    "revision": "2b5a994c5c3333fc344b2c92ccba0147"
+  },
+  {
+    "url": "pages/site/contact.39858a374cdca7946d4e.js",
+    "revision": "21b97015c01707341af2c9ad67e0d4a8"
+  },
+  {
+    "url": "pages/site/history.f09d52dcf7f4aad25d47.js",
+    "revision": "dddfee81c7896a7f765abc553522b638"
+  },
+  {
+    "url": "pages/site/link.b064a6aa230a655f2954.js",
+    "revision": "cbc2bd903ebd3a38d6c4e6fde8648dc5"
+  },
+  {
+    "url": "pages/test.34fbacde111b0c65e15f.js",
+    "revision": "e6c51e0fec80cc0ab702d52cc4b7ef7b"
+  },
+  {
+    "url": "pages/webker.e2add3e64bd8609df109.js",
+    "revision": "1245942bebd2a85b66611e261a238059"
+  },
+  {
+    "url": "server-bundle.json",
+    "revision": "0646891ff3abe70dddb67e976761a90f"
+  },
+  {
+    "url": "vendor.493a53c088d479016098.js",
+    "revision": "53c9ce27a3d9735608b37e7aa8b4f526"
+  },
+  {
+    "url": "vue-ssr-client-manifest.json",
+    "revision": "da6ea91550a5ebe4fd75c079740c1705"
   }
 ];
 
@@ -137,5 +141,5 @@ const workboxSW = new self.WorkboxSW({
   "directoryIndex": "/"
 });
 workboxSW.precache(fileManifest);
-workboxSW.router.registerRoute(/https:\/\/ofm2qnhj5.qnssl.com\/.nuxt\/dist\/.*/, workboxSW.strategies.cacheFirst());
-workboxSW.router.registerRoute(/\/.*/, workboxSW.strategies.networkFirst());
+workboxSW.router.registerRoute('/https:\/\/ofm2qnhj5.qnssl.com\/.nuxt\/dist\/.*/', workboxSW.strategies.cacheFirst({}), 'GET');
+workboxSW.router.registerRoute('/\/.*/', workboxSW.strategies.networkFirst({}), 'GET');

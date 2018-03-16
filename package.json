@@ -19,7 +19,7 @@
     "js-cookie": "^2.1.4",
     "marked": "^0.3.6",
     "normalize.css": "^5.0.0",
-    "nuxt": "^1.0.0-rc11",
+    "nuxt": "^1.4.0",
     "particles.js": "^2.0.0",
     "perfect-scrollbar": "^0.7.0",
     "prismjs": "^1.6.0",
@@ -31,7 +31,7 @@
     "underscore": "^1.8.3",
     "vue-i18n": "^7.2.0",
     "vue-svg-icon": "^1.2.9",
-    "vue": "~2.4.2"
+    "vue": "^2.5.16"
   },
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3334 nuxt",
