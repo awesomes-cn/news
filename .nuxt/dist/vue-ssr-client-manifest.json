@@ -7,7 +7,7 @@
     "pages/index.87a2da1456d3436b32cc.js",
     "layouts/default.d9b45c49c4ef93358819.js",
     "pages/news/_id/index.e126886a7ceb4c2002c6.js",
-    "pages/pub.6481d5b96008abf05581.js",
+    "pages/pub.c60952ef3c9779b7fc6b.js",
     "pages/news/_id/share.95bdedc19a9527e42d6b.js",
     "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
     "pages/webker.e2add3e64bd8609df109.js",
@@ -23,18 +23,18 @@
     "pages/develop/icons.bf17974fca30c4dc78cd.js",
     "layouts/blank.d880f9de2f360286e7db.js",
     "vendor.493a53c088d479016098.js",
-    "app.9f2f330b0e24e03ccdda.js",
+    "app.0c3d9a96ab179c17e23a.js",
     "22.b0c46f8ed14bf457ba66.js",
-    "manifest.69d4487457d71c35e43f.js",
+    "manifest.458a75b839e826bb8467.js",
     "LICENSES",
     "manifest.0d090c81.json",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.69d4487457d71c35e43f.js",
+    "manifest.458a75b839e826bb8467.js",
     "vendor.493a53c088d479016098.js",
-    "app.9f2f330b0e24e03ccdda.js"
+    "app.0c3d9a96ab179c17e23a.js"
   ],
   "async": [
     "pages/site/capa.cb9690892c58c3688f74.js",
@@ -42,7 +42,7 @@
     "pages/index.87a2da1456d3436b32cc.js",
     "layouts/default.d9b45c49c4ef93358819.js",
     "pages/news/_id/index.e126886a7ceb4c2002c6.js",
-    "pages/pub.6481d5b96008abf05581.js",
+    "pages/pub.c60952ef3c9779b7fc6b.js",
     "pages/news/_id/share.95bdedc19a9527e42d6b.js",
     "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
     "pages/webker.e2add3e64bd8609df109.js",
@@ -179,9 +179,6 @@
     "0ba8cabc": [
       22
     ],
-    "56da7344": [
-      6
-    ],
     "45dea065": [
       23
     ],
@@ -306,6 +303,9 @@
     ],
     "36e39d59": [
       21
+    ],
+    "528f1e75": [
+      6
     ],
     "ff98a974": [
       21
@@ -1132,6 +1132,9 @@
     "e5272e4a": [
       10
     ],
+    "0d817934": [
+      6
+    ],
     "bcb40a4e": [
       21
     ],
@@ -1805,6 +1808,9 @@
     "76dd92b8": [
       21
     ],
+    "24776f7c": [
+      6
+    ],
     "1cd3993c": [
       21
     ],
@@ -1828,9 +1834,6 @@
     ],
     "0ee41846": [
       21
-    ],
-    "402fb652": [
-      6
     ],
     "256af545": [
       21
@@ -2056,9 +2059,6 @@
     "7d76e03b": [
       22
     ],
-    "84c65fd4": [
-      6
-    ],
     "74b8d3ba": [
       10
     ],
@@ -2218,9 +2218,6 @@
     "758d728d": [
       21
     ],
-    "b248bb8c": [
-      21
-    ],
     "70f82b6e": [
       21
     ],
@@ -2231,6 +2228,9 @@
       11
     ],
     "2b29248c": [
+      21
+    ],
+    "b248bb8c": [
       21
     ]
   }

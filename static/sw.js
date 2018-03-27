@@ -23,12 +23,12 @@ const fileManifest = [
     "revision": "51c1a44bc4abbd2ed62f6c91bf812988"
   },
   {
-    "url": "app.9f2f330b0e24e03ccdda.js",
-    "revision": "7aa279ce850b18c98eab31dd1a2e8769"
+    "url": "app.0c3d9a96ab179c17e23a.js",
+    "revision": "c9b74a7ea9b510698f43f8b4de8a429e"
   },
   {
     "url": "index.spa.html",
-    "revision": "6a5d6ec1a53bc3d580624ef31423e138"
+    "revision": "3df28270a6440ec798283ca1402d71d3"
   },
   {
     "url": "index.ssr.html",
@@ -47,8 +47,8 @@ const fileManifest = [
     "revision": "f3966fe6dfba9ca89e79a19738c425fc"
   },
   {
-    "url": "manifest.69d4487457d71c35e43f.js",
-    "revision": "cb693094f6cdd591ecf5d963df81e89a"
+    "url": "manifest.458a75b839e826bb8467.js",
+    "revision": "f094b5038443c55cd808dfcad9772e0a"
   },
   {
     "url": "pages/develop/icons.bf17974fca30c4dc78cd.js",
@@ -87,8 +87,8 @@ const fileManifest = [
     "revision": "c5d8ec871a0b1f22a7fafd1895791b7a"
   },
   {
-    "url": "pages/pub.6481d5b96008abf05581.js",
-    "revision": "107184268e895400fa38410dc2a402ec"
+    "url": "pages/pub.c60952ef3c9779b7fc6b.js",
+    "revision": "b3b6abb05c7d5066ed167f86b84bbd00"
   },
   {
     "url": "pages/site.3002a68d93782d1666ba.js",
@@ -124,7 +124,7 @@ const fileManifest = [
   },
   {
     "url": "server-bundle.json",
-    "revision": "0646891ff3abe70dddb67e976761a90f"
+    "revision": "fac545b161d021a27a1507521eb50ab0"
   },
   {
     "url": "vendor.493a53c088d479016098.js",
@@ -132,7 +132,7 @@ const fileManifest = [
   },
   {
     "url": "vue-ssr-client-manifest.json",
-    "revision": "da6ea91550a5ebe4fd75c079740c1705"
+    "revision": "bb08722ef1b24e8c6bc062801b993670"
   }
 ];
 

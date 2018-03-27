@@ -22,8 +22,6 @@
                   span(v-else) 确认更新
                 template(v-else)
                   span 提交中 ，请稍后....
-            
-              
                 
           Loading(v-else)
       template(v-if="session.iswebker === 'NO'")
@@ -37,7 +35,7 @@
 
 <script>
   import axios from '~/plugins/axios'
-  import Vue from 'vue'
+  // import Vue from 'vue'
   import Loading from '~/components/loading'
   export default {
     data () {
@@ -56,7 +54,8 @@
       }
     },
     components: {
-      Loading
+      Loading,
+      editor: () => import('~/components/editor.vue')
     },
     computed: {
       session () {
@@ -127,15 +126,14 @@
       }
     },
     async created () {
-      const editor = await import('~/components/editor.vue')
-      Vue.component('editor', editor)
-      this.editorLoading = false
-
       if (this.$route.query.id > 0) {
         let res = await axios().get(`news/${this.$route.query.id}`)
         this.editem = res.data
         this.setEditVal(res.data.con)
       }
+    },
+    async mounted () {
+      this.editorLoading = false
     }
   }
 </script>
