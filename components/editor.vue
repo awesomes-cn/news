@@ -1,17 +1,9 @@
 <template lang="pug">
   div.meditor(:style="hideBorder ? 'border: 0' : ''")
-    // div.toolbar(v-if="!hideTool")
-    //   a(href="javascript:void(0)" title="上传图片" @click="preview")
-    //     icon(name="images")
-
-    //   a(href="javascript:void(0)" title="预览" @click="preview" v-bind:class="'active-' + (view === 'preview')")
-    //     icon(name="eye")
     div.con(v-show="view == 'editor'")
       textarea(:id="'meditor-' + flag" v-bind:placeholder="placeholder")
+      
     div.preview(v-show="view == 'preview'" v-html="marked(htmlstr)")
-    // div.footbar(v-if="!hideFooter")
-    //   slot
-    //     span.info Markdown 编辑器
 </template>
 <script>
   import $ from '~/assets/js/jquery-vendor'

@@ -1,9 +1,12 @@
 <template lang="pug">
   div.comment-wraper
     div.editor-go
-      button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
+      div.emoji-wrap
+        a.emoji-btn(href="javascripot: void(0)") 😜
+        div.emoji-box
+          a.emoji-item(v-for="item in emojis" href="javascript: void(0)") {{item}}
       editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说" v-if="isShowEditor")
-
+      button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
     div.citem(v-for="(item, index) in coms")
       nuxt-link(:to="'/mem/' + item.mem.id")
         img.mem-tx(:src="cdn(item.mem.avatar, 'mem')")
@@ -22,9 +25,6 @@
 
         a.extra(href="javascript:void(0)" @click="destroy(item, index)"  v-if="session && item.mem.id == session.id")
           span 删除  
-
-
-
 </template>
 <script>
   import axios from '~/plugins/axios'
@@ -51,7 +51,8 @@
             ing: '更新中...'
           }
         },
-        isShowEditor: false
+        isShowEditor: false,
+        emojis: ['😜', '😀', '😂', '🤣', '😄', '😊', '😍', '😋', '😘', '😙', '😛', '😜', '🤓', '😎', '🤡', '🙄', '😠', '💩', '😧', '😭', '💤', '👏', '👍', '👎', '🙌', '👌', '🤝', '🙏', '📢', '💗', '💔', '💐']
       }
     },
     computed: {
@@ -239,7 +240,69 @@
   .editor-go {
     margin-bottom: 40px;
     position: relative;
-    padding-right: 80px;
+    display: flex;
+    align-items: flex-start;
+
+    .meditor {
+      flex-grow: 1;
+      margin: 0 8px;
+    }
+
+    .emoji-wrap {
+      position: relative;
+      padding-top: 5px;
+    }
+
+    .emoji-btn {
+      font-size: 20px;
+    }
+
+    .emoji-box {
+      position: absolute;
+      top: 50px;
+      background-color: #FFF;
+      display: flex;
+      font-size: 20px;
+      flex-wrap: wrap;
+      width: 315px;
+      z-index: 10;
+      padding: 20px;
+      border-radius: 2px;
+      left: -15px;
+      box-shadow: 0px 0px 10px #DDD;
+      box-sizing: content-box;
+
+      &::before {
+        content: '';
+        display: block;
+        width:0px;
+        height:0px;
+        border-top:5px solid rgba(0,0,0,0);
+        border-right:10px solid  rgba(0,0,0,0);
+        border-bottom:10px solid #FFF;
+        border-left:10px solid  rgba(0,0,0,0);
+        position: absolute;
+        top: -15px;
+        left: 20px;
+      }
+
+      .emoji-item {
+        border: #e8e8e8  1px solid;
+        margin: -1px 0 0 -1px;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+          border: 1px solid #eb7350;
+          background: #fff9ec;
+          z-index: 2;
+          font-size: 22px;
+        }
+      }
+    }
   }
 
   article {
@@ -252,9 +315,6 @@
     background-color: #da552f;
     padding: 10px 20px;
     cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 4px;
   }
 
   .cancel-edit {
@@ -272,6 +332,8 @@
     left: 0;
     top: 5px;
   }
+
+  
 
   
 </style>

@@ -12,7 +12,6 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_workboxplugindaff47da_6456396f from 'nuxt_plugin_workboxplugindaff47da_6456396f' // Source: ./workbox.plugin.daff47da.js (ssr: false)
 import nuxt_plugin_vueicon_9dc04454 from 'nuxt_plugin_vueicon_9dc04454' // Source: ../plugins/vue-icon
 import nuxt_plugin_icon_6a81acef from 'nuxt_plugin_icon_6a81acef' // Source: ../plugins/icon
 import nuxt_plugin_common_7195563e from 'nuxt_plugin_common_7195563e' // Source: ../plugins/common
@@ -164,7 +163,6 @@ async function createApp (ssrContext) {
   if (typeof nuxt_plugin_i18n_1fba523a === 'function') await nuxt_plugin_i18n_1fba523a(app.context, inject)
   
   if (process.browser) { 
-    if (typeof nuxt_plugin_workboxplugindaff47da_6456396f === 'function') await nuxt_plugin_workboxplugindaff47da_6456396f(app.context, inject)
     if (typeof nuxt_plugin_ba_356120bc === 'function') await nuxt_plugin_ba_356120bc(app.context, inject)
     if (typeof nuxt_plugin_pagination_0c55d867 === 'function') await nuxt_plugin_pagination_0c55d867(app.context, inject)
     if (typeof nuxt_plugin_upload_340b8e12 === 'function') await nuxt_plugin_upload_340b8e12(app.context, inject)
