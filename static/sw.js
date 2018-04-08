@@ -19,16 +19,16 @@ importScripts('workbox-sw.prod.v1.3.0.js');
  */
 const fileManifest = [
   {
-    "url": "22.b0c46f8ed14bf457ba66.js",
-    "revision": "51c1a44bc4abbd2ed62f6c91bf812988"
+    "url": "22.ccb859d1b6edde6c2b87.js",
+    "revision": "cb0159fa7b4d8e7010cba5b55847fb72"
   },
   {
-    "url": "app.0c3d9a96ab179c17e23a.js",
-    "revision": "c9b74a7ea9b510698f43f8b4de8a429e"
+    "url": "app.fc6726e31e4aabe0b858.js",
+    "revision": "7e13f8ab168c6e1895fe40356cf5a89c"
   },
   {
     "url": "index.spa.html",
-    "revision": "3df28270a6440ec798283ca1402d71d3"
+    "revision": "889f1783aed3cc16eb1ade1db259045b"
   },
   {
     "url": "index.ssr.html",
@@ -39,40 +39,40 @@ const fileManifest = [
     "revision": "34a8f32e9ea47faae5f3fffb027dcb57"
   },
   {
-    "url": "layouts/default.d9b45c49c4ef93358819.js",
-    "revision": "0c6f56e6ee02d648eb20fb0b2581d965"
+    "url": "layouts/default.14d8d8b7098d40550e87.js",
+    "revision": "0b333019412e406ddcb70ea6e209f527"
   },
   {
     "url": "manifest.0d090c81.json",
     "revision": "f3966fe6dfba9ca89e79a19738c425fc"
   },
   {
-    "url": "manifest.458a75b839e826bb8467.js",
-    "revision": "f094b5038443c55cd808dfcad9772e0a"
+    "url": "manifest.b1886bd0150307e95f72.js",
+    "revision": "75e3237b66dd9e2d8eec6ebf3629deed"
   },
   {
     "url": "pages/develop/icons.bf17974fca30c4dc78cd.js",
     "revision": "964ed52b477d3c236cb7575a0e2aeec5"
   },
   {
-    "url": "pages/index.87a2da1456d3436b32cc.js",
-    "revision": "0e10ba0ed4926d79f6e74ecb2a47ccd9"
+    "url": "pages/index.79e99312f9535c04fa21.js",
+    "revision": "8d815a9d6702a7ca7f87ec8110711980"
   },
   {
     "url": "pages/mem.c196b38954f7ce84e0ed.js",
     "revision": "6cadf7c46905167e1fa04ff555582b00"
   },
   {
-    "url": "pages/mem/_id/index.ccfc256e7db7838d9d46.js",
-    "revision": "4a044bfc6205e4f9b790a52346cd0df4"
+    "url": "pages/mem/_id/index.e6a37e919e7c3cc6f62b.js",
+    "revision": "9ab02c6adb286f5b69284adec7f01fb8"
   },
   {
-    "url": "pages/mem/_id/pubs/news.a0be5af3d75a3a26b0e6.js",
-    "revision": "65ec632384308f1f1f65b5b340e61b3d"
+    "url": "pages/mem/_id/pubs/news.74f2ed4b9f741faf053d.js",
+    "revision": "4ccb13fa378555dced9d39466fb7a8fc"
   },
   {
-    "url": "pages/news/_id/index.e126886a7ceb4c2002c6.js",
-    "revision": "a9bf1ab0f0dbe75ac148022b3855220c"
+    "url": "pages/news/_id/index.1142506197148eecc901.js",
+    "revision": "f89e346b01d9a7cc0c614e6c38019bd0"
   },
   {
     "url": "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
@@ -124,7 +124,7 @@ const fileManifest = [
   },
   {
     "url": "server-bundle.json",
-    "revision": "fac545b161d021a27a1507521eb50ab0"
+    "revision": "32a10faaea2c258147055f71975dc113"
   },
   {
     "url": "vendor.493a53c088d479016098.js",
@@ -132,7 +132,7 @@ const fileManifest = [
   },
   {
     "url": "vue-ssr-client-manifest.json",
-    "revision": "bb08722ef1b24e8c6bc062801b993670"
+    "revision": "5fedcfcc6c70c3853b6e481cc557b0fd"
   }
 ];
 

@@ -22,7 +22,12 @@
     },
     watch: {
       'setval': function (val) {
-        markdown_editor.setValue(val.val)
+        if (val.mode === 'insert') {
+          markdown_editor.replaceSelection(val.val)
+        } else {
+          markdown_editor.setValue(val.val)
+        }
+        markdown_editor.focus()
       }
     },
     methods: {

@@ -23,8 +23,8 @@
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论")
             icon(name="comment"  width="16px") {{item.comment}} 评论
 
-          a(href="javascript:void(0)" title="收藏")
-            icon(name="star"  width="16px")
+          // a(href="javascript:void(0)" title="收藏")
+          //   icon(name="star"  width="16px")
             
 
           nuxt-link(:to="'/news/' + item.id + '/share'" class="admin-oper" title="分享")
@@ -149,7 +149,7 @@
 
       .middle {
         flex-grow: 1;
-        overflow: hidden;
+        // overflow: hidden;
         padding-left: 10px;
 
         .img-con {

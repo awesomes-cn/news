@@ -2,9 +2,9 @@
   div.comment-wraper
     div.editor-go
       div.emoji-wrap
-        a.emoji-btn(href="javascripot: void(0)") 😜
-        div.emoji-box
-          a.emoji-item(v-for="item in emojis" href="javascript: void(0)") {{item}}
+        a.emoji-btn(href="javascripot: void(0)" @click="showEmbox = true") 😜
+        div.emoji-box(v-show="showEmbox")
+          a.emoji-item(v-for="item in emojis" href="javascript: void(0)" @click="insertEmoji(item)") {{item}}
       editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说" v-if="isShowEditor")
       button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
     div.citem(v-for="(item, index) in coms")
@@ -51,6 +51,7 @@
             ing: '更新中...'
           }
         },
+        showEmbox: false,
         isShowEditor: false,
         emojis: ['😜', '😀', '😂', '🤣', '😄', '😊', '😍', '😋', '😘', '😙', '😛', '😜', '🤓', '😎', '🤡', '🙄', '😠', '💩', '😧', '😭', '💤', '👏', '👍', '👎', '🙌', '👌', '🤝', '🙏', '📢', '💗', '💔', '💐']
       }
@@ -64,8 +65,22 @@
       setEditVal: function (val) {
         this.setval = {
           time: Date.now(),
-          val: val
+          val: val,
+          mode: 'set'
         }
+      },
+      insertEditVal: function (val) {
+        this.setval = {
+          time: Date.now(),
+          val: val,
+          mode: 'insert'
+        }
+      },
+
+      // 插入表情
+      insertEmoji: function (emoji) {
+        this.insertEditVal(emoji)
+        this.showEmbox = false
       },
 
       // 获取评论列表
@@ -151,7 +166,7 @@
       // 回复
       reply: function (item, event) {
         this.scrollToEditor(event)
-        this.setEditVal(this.comcon + `@${item.mem.nc} `)
+        this.insertEditVal(this.comcon + `@${item.mem.nc} `)
       },
 
       // 处理 @
@@ -275,15 +290,18 @@
       &::before {
         content: '';
         display: block;
-        width:0px;
-        height:0px;
-        border-top:5px solid rgba(0,0,0,0);
-        border-right:10px solid  rgba(0,0,0,0);
-        border-bottom:10px solid #FFF;
-        border-left:10px solid  rgba(0,0,0,0);
         position: absolute;
-        top: -15px;
+        top: -10px;
         left: 20px;
+        width: 20px;
+        height: 20px;
+        border: #EEE 1px solid;
+        z-index: -1;
+        transform: rotate(45deg);
+        border-top-left-radius: 5px;
+        background-color: #FFF;
+        border-bottom: 0;
+        border-right: 0;
       }
 
       .emoji-item {
