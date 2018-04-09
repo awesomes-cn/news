@@ -4,7 +4,8 @@
       div.left
         a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor"  title="有用")
           icon(name="arrow-up"  width="18px" alone="true")
-          div {{item.favor}}
+          div(v-if="item.favor > 0") {{item.favor}}
+          div(v-else) 無
         
       div.middle
         article(v-html="marked(item.con)")
@@ -15,31 +16,26 @@
           
           a.up(href="javascript:void(0)" @click="switchFavor(item)"  v-bind:class="'has-' + item.isFavor" title="有用")
             icon(name="arrow-up"  width="18px" alone="true") {{item.favor}}
-
-          
           
           span  {{timeago(item.created_at)}}
 
           a(href="javascript:void(0)" @click="item.isShowCom = !item.isShowCom"  title="评论")
             icon(name="comment"  width="16px") {{item.comment}} 评论
 
-          // a(href="javascript:void(0)" title="收藏")
-          //   icon(name="star"  width="16px")
-            
+          a(href="javascript:void(0)" title="收藏" @click="switchCollect(item)"  v-bind:class="'collected-' + item.isCollect")
+            icon(name="star"  width="16px" v-if="!item.isCollect")
+            icon(name="star_fill" width="16px" v-else)
 
           nuxt-link(:to="'/news/' + item.id + '/share'" class="admin-oper" title="分享")
             icon(name="share"  width="16px")
 
           template(v-if="session && session.id === item.mem.id")
-           
 
             a.admin-oper(href="javascript:void(0)" @click="destroy(item)"  title="删除")
               icon(name="trash"  width="16px")
 
             nuxt-link(:to="'/pub?id=' + item.id" class="admin-oper" title="编辑")
               icon(name="pen"  width="14px")
-
-              
           
         div.com-wrap(v-if="item.isShowCom")
           comment(:flag="'news-comment-' + flag + '-' + item.id" typ="NEWS" v-bind:idcd="item.id")
@@ -89,6 +85,17 @@
         }).then(res => {
           item.favor = res.data.amount
           item.isFavor = res.data.has
+        })
+      },
+      // 切换收藏
+      switchCollect: function (item) {
+        if (this.showLogin()) { return }
+        axios().post('oper', {
+          opertyp: 'COLLECT',
+          typ: 'NEWS',
+          idcd: item.id
+        }).then(res => {
+          item.isCollect = res.data.has
         })
       },
       // 删除
@@ -247,11 +254,13 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      // padding-left: 10px;
-
 
       a {
         color: #a9afb9;
+
+        &.collected-true {
+          color: #82888c;
+        }
       }
 
       & > span, & > a {

@@ -2,9 +2,9 @@
   div.comment-wraper
     div.editor-go
       div.emoji-wrap
-        a.emoji-btn(href="javascripot: void(0)" @click="showEmbox = true") 😜
+        a.emoji-btn(href="javascripot: void(0)" @click.stop="showEmbox = true") 😜
         div.emoji-box(v-show="showEmbox")
-          a.emoji-item(v-for="item in emojis" href="javascript: void(0)" @click="insertEmoji(item)") {{item}}
+          a.emoji-item(v-for="item in emojis" href="javascript: void(0)" @click.stop="insertEmoji(item)") {{item}}
       editor(:flag="flag"  v-model="comcon"  v-bind:setval="setval" placeholder="我有话说" v-if="isShowEditor")
       button.sub-btn(@click="submit" v-bind:disabled="isSubmiting") {{subMap[editing ? 'edit' : 'new'][isSubmiting ? 'ing' : 'ready']}}
     div.citem(v-for="(item, index) in coms")
@@ -80,7 +80,6 @@
       // 插入表情
       insertEmoji: function (emoji) {
         this.insertEditVal(emoji)
-        this.showEmbox = false
       },
 
       // 获取评论列表
@@ -196,6 +195,10 @@
     },
     mounted () {
       this.list()
+      let _self = this
+      $('body').click(function () {
+        _self.showEmbox = false
+      })
     },
     async created () {
       this.isShowEditor = true

@@ -3,10 +3,10 @@
   "all": [
     "pages/site/capa.cb9690892c58c3688f74.js",
     "img/logo-50.be1aab0.png",
-    "pages/mem/_id/index.e6a37e919e7c3cc6f62b.js",
-    "pages/index.79e99312f9535c04fa21.js",
+    "pages/mem/_id/index.32b1f8dd7209d3b31af2.js",
+    "pages/index.08130afbac98a087ee0e.js",
     "layouts/default.14d8d8b7098d40550e87.js",
-    "pages/news/_id/index.1142506197148eecc901.js",
+    "pages/news/_id/index.f8bd4cd1d239cd4a8316.js",
     "pages/pub.c60952ef3c9779b7fc6b.js",
     "pages/news/_id/share.95bdedc19a9527e42d6b.js",
     "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
@@ -15,7 +15,7 @@
     "pages/site/link.b064a6aa230a655f2954.js",
     "pages/site/history.f09d52dcf7f4aad25d47.js",
     "pages/site/contact.39858a374cdca7946d4e.js",
-    "pages/mem/_id/pubs/news.74f2ed4b9f741faf053d.js",
+    "pages/mem/_id/pubs/news.43be31eda8a119b33a24.js",
     "pages/site/about.f7b33db3ce0da38e36fc.js",
     "pages/site.3002a68d93782d1666ba.js",
     "pages/notifications.97a4ceba13c9cb6f4f1e.js",
@@ -23,25 +23,25 @@
     "pages/develop/icons.bf17974fca30c4dc78cd.js",
     "layouts/blank.d880f9de2f360286e7db.js",
     "vendor.493a53c088d479016098.js",
-    "app.fc6726e31e4aabe0b858.js",
+    "app.a7e5088eddd3671640c8.js",
     "22.ccb859d1b6edde6c2b87.js",
-    "manifest.b1886bd0150307e95f72.js",
+    "manifest.b1fb0358526c54f0356c.js",
     "LICENSES",
     "manifest.0d090c81.json",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.b1886bd0150307e95f72.js",
+    "manifest.b1fb0358526c54f0356c.js",
     "vendor.493a53c088d479016098.js",
-    "app.fc6726e31e4aabe0b858.js"
+    "app.a7e5088eddd3671640c8.js"
   ],
   "async": [
     "pages/site/capa.cb9690892c58c3688f74.js",
-    "pages/mem/_id/index.e6a37e919e7c3cc6f62b.js",
-    "pages/index.79e99312f9535c04fa21.js",
+    "pages/mem/_id/index.32b1f8dd7209d3b31af2.js",
+    "pages/index.08130afbac98a087ee0e.js",
     "layouts/default.14d8d8b7098d40550e87.js",
-    "pages/news/_id/index.1142506197148eecc901.js",
+    "pages/news/_id/index.f8bd4cd1d239cd4a8316.js",
     "pages/pub.c60952ef3c9779b7fc6b.js",
     "pages/news/_id/share.95bdedc19a9527e42d6b.js",
     "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
@@ -50,7 +50,7 @@
     "pages/site/link.b064a6aa230a655f2954.js",
     "pages/site/history.f09d52dcf7f4aad25d47.js",
     "pages/site/contact.39858a374cdca7946d4e.js",
-    "pages/mem/_id/pubs/news.74f2ed4b9f741faf053d.js",
+    "pages/mem/_id/pubs/news.43be31eda8a119b33a24.js",
     "pages/site/about.f7b33db3ce0da38e36fc.js",
     "pages/site.3002a68d93782d1666ba.js",
     "pages/notifications.97a4ceba13c9cb6f4f1e.js",
@@ -1846,6 +1846,9 @@
     "3ad863bb": [
       21
     ],
+    "35775f5b": [
+      22
+    ],
     "38209cda": [
       22
     ],
@@ -2206,9 +2209,6 @@
       4,
       1
     ],
-    "b248bb8c": [
-      21
-    ],
     "ec388b92": [
       21
     ],
@@ -2222,6 +2222,9 @@
       21
     ],
     "758d728d": [
+      21
+    ],
+    "b248bb8c": [
       21
     ],
     "70f82b6e": [

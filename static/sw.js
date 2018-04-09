@@ -23,12 +23,12 @@ const fileManifest = [
     "revision": "cb0159fa7b4d8e7010cba5b55847fb72"
   },
   {
-    "url": "app.fc6726e31e4aabe0b858.js",
-    "revision": "7e13f8ab168c6e1895fe40356cf5a89c"
+    "url": "app.a7e5088eddd3671640c8.js",
+    "revision": "7b61fab865112363f2c7d1bc5593403b"
   },
   {
     "url": "index.spa.html",
-    "revision": "889f1783aed3cc16eb1ade1db259045b"
+    "revision": "70ce66a92a0a3ebfa4ca1a767e566bf0"
   },
   {
     "url": "index.ssr.html",
@@ -47,32 +47,32 @@ const fileManifest = [
     "revision": "f3966fe6dfba9ca89e79a19738c425fc"
   },
   {
-    "url": "manifest.b1886bd0150307e95f72.js",
-    "revision": "75e3237b66dd9e2d8eec6ebf3629deed"
+    "url": "manifest.b1fb0358526c54f0356c.js",
+    "revision": "63db5e3e56c0cf3f2b1710632e65d745"
   },
   {
     "url": "pages/develop/icons.bf17974fca30c4dc78cd.js",
     "revision": "964ed52b477d3c236cb7575a0e2aeec5"
   },
   {
-    "url": "pages/index.79e99312f9535c04fa21.js",
-    "revision": "8d815a9d6702a7ca7f87ec8110711980"
+    "url": "pages/index.08130afbac98a087ee0e.js",
+    "revision": "9867855df2f99a721a320b5c32a909e4"
   },
   {
     "url": "pages/mem.c196b38954f7ce84e0ed.js",
     "revision": "6cadf7c46905167e1fa04ff555582b00"
   },
   {
-    "url": "pages/mem/_id/index.e6a37e919e7c3cc6f62b.js",
-    "revision": "9ab02c6adb286f5b69284adec7f01fb8"
+    "url": "pages/mem/_id/index.32b1f8dd7209d3b31af2.js",
+    "revision": "d79a023d2f56c39b30926c71762a6e8d"
   },
   {
-    "url": "pages/mem/_id/pubs/news.74f2ed4b9f741faf053d.js",
-    "revision": "4ccb13fa378555dced9d39466fb7a8fc"
+    "url": "pages/mem/_id/pubs/news.43be31eda8a119b33a24.js",
+    "revision": "d002d261e7de7c81a5ea9513852528ab"
   },
   {
-    "url": "pages/news/_id/index.1142506197148eecc901.js",
-    "revision": "f89e346b01d9a7cc0c614e6c38019bd0"
+    "url": "pages/news/_id/index.f8bd4cd1d239cd4a8316.js",
+    "revision": "a1712cc197b7f99abbb2eefcc4be660f"
   },
   {
     "url": "pages/news/_id/screenshot.5d84cf2cae412ce03772.js",
@@ -124,7 +124,7 @@ const fileManifest = [
   },
   {
     "url": "server-bundle.json",
-    "revision": "32a10faaea2c258147055f71975dc113"
+    "revision": "df6abdfae4b9c7e6fa7963f44c4827d3"
   },
   {
     "url": "vendor.493a53c088d479016098.js",
@@ -132,7 +132,7 @@ const fileManifest = [
   },
   {
     "url": "vue-ssr-client-manifest.json",
-    "revision": "5fedcfcc6c70c3853b6e481cc557b0fd"
+    "revision": "5201e222a27a8517fca5cd987194fe31"
   }
 ];
 
