@@ -17,7 +17,10 @@ module.exports = {
   },
   router: {
     // 在每页渲染前运行 middleware/user-agent.js 中间件的逻辑
-    middleware: ['auth', 'i18n', 'notification']
+    middleware: ['auth', 'i18n', 'notification'],
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
   head: {
     title: '前端情报局',

@@ -28,7 +28,7 @@
     div.container.conarea
       div.mem-menus
         nuxt-link(:to="'/mem/' + mem.id + '/pubs/news'") {{who}}发布的
-        nuxt-link(:to="'/mem/' + mem.id + '/zan'") {{who}}点赞的
+        nuxt-link(:to="'/mem/' + mem.id + '/collects/news'") {{who}}收藏的
       nuxt-child  
 </template>
 
@@ -84,13 +84,16 @@
     margin-bottom: 10px;
     background-color: rgb(232, 236, 230);
 
-    a.router-link-exact-active {
-      color: #ee3910;
-    }
-
     a {
       padding: 15px 10px;
       display: inline-block;
+      color: #333
+    }
+
+    a.nuxt-link-active {
+      color: #db562e;
+      background-color: #FFF;
+      border-top: #db562e 3px solid;
     }
   }
   .mem-banner {
@@ -137,7 +140,7 @@
 
   .conarea {
     max-width: 800px;
-    background-color: #FFF;
+    // background-color: #FFF;
     margin-top: -72px;
     padding: 0;
   }

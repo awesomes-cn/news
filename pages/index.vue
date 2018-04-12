@@ -11,6 +11,7 @@
           span power by 
           a(href="https://www.algolia.com/" target="_blank") algolia 
       div.slogn
+        h2 Front End News Center
         span 每天刷一刷，跟上前端快步伐
         div.m-app
           div.inner
@@ -26,7 +27,8 @@
         news(:newss="newss" flag="news-list")
         div.load-wraper
           button.load-more(@click="loadMoreNews" v-bind:disabled="loading" v-if="hasmore")
-            icon(name="loadmore" rotate="180" width="15px") {{loading ? '加载中...' : '加载更多'}}
+            // icon(name="loadmore" rotate="180" width="15px")
+            span {{loading ? 'LOADING...' : 'LOAD MORE'}}
           span.nomore(v-else) 没有更多了
 </template>
 
@@ -178,7 +180,7 @@
   }
 
   .list-inner {
-    background-color: #FFF;
+    // background-color: #FFF;
     padding-bottom: 40px;
   }
   .toolbar {
@@ -189,13 +191,15 @@
   .load-wraper {
     text-align: center;
     .load-more {
-      border: 1px solid rgba(228, 230, 229, 0.61);
+      border: none;
       padding: 15px 30px;
-      background-color: #fbfbfb;
+      background: none;
       outline: none;
-      color: #888;
-      box-shadow: 0px 0px 10px #f4f4f4;
-      border-radius: 1px;
+      // box-shadow: 0px 0px 10px #f4f4f4;
+      color: #FFF;
+      width: 100%;
+      background-color: #4e97f4;
+      border-radius: 3px;
     }
     .nomore {
       padding: 50px 0;

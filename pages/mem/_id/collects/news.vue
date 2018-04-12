@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.container
     div.news-wraper
       news(:newss="newss" flag="news-list")
     pagination(flag="pubnews" :size="pagesize" :total="pagetotal")
@@ -20,7 +20,7 @@
       }
     },
     async asyncData ({ req, params, query }) {
-      let res = await axios(req).get(`news?author=${params.id}`, {
+      let res = await axios(req).get(`news?collectby=${params.id}`, {
         params: {
           limit: pagesize,
           skip: pagesize * (query.page - 1)

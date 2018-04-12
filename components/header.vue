@@ -14,13 +14,14 @@
             icon(name="more" width="20px")
 
           div.memeus(v-show="showmemeus" @mouseover="showmemeus = true" @mouseleave="showmemeus = false")
+            nuxt-link(:to="'/mem/' + (session || {}).id + '/collects/news'" ) 我的收藏
             a(:href="'https://www.awesomes.cn/mem/' +  (session || {}).id  + '/profile'" target="_blank") 个人资料
             a(href="javascript:void(0)" @click="logout()") 注 销
 
           a(href="javascript:void(0)" @click="showLogin()" v-show="!session") 登录
           
           nuxt-link(:to="'/mem/' + (session || {}).id" v-show="session" v-bind:title="session && session.iswebker === 'YES' ? '你是情报员' : ''") 
-            img.tx(:src="cdn((session || {}).avatar, 'mem')")
+            img.tx(:src="cdn((session || {}).avatar, 'mem', 'repo-50')")
             span.webk-label(v-if="session && session.iswebker === 'YES'") 员
             
 

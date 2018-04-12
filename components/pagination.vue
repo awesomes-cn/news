@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:id="'pagid-' + flag")
+  div(:id="'pagid-' + flag" v-if="total > 0")
 </template>
 
 
@@ -13,7 +13,6 @@
       }
     },
     watch: {
-      '$route': 'initPage',
       'total': 'initPage'
     },
     methods: {
@@ -55,7 +54,7 @@
 
 <style lang="scss">
   .simple-pagination {
-    text-align: center;
+    // text-align: center;
     li {
       list-style: none;
       display: inline-block;
